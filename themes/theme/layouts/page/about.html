@@ -1,95 +1,81 @@
-<html>
-
-<head>
-    <title>Insightic</title>
-    {{ partial "head.html" . }}
-</head>
-
-<body>
-    {{ partial "navbar.html" . }}
-
-    <div class="w-100 background-image d-flex align-items-center" style="
-        aspect-ratio: 21/9; 
-        min-height: 300px; 
-        max-height: 560px;
-        background-image: url('/public/img/contact-us.jpg');
-        ">
-        <div class="container text-white">
-            <div class="w-100" style="max-width: 500px">
-                <div style="font-size: 4rem;"><strong>About</strong></div>
-                <div style="font-size: 1.2rem;">Introduction About Our Team Member.</div>
-            </div>
+{{ define "content" }}
+<div class="w-100 background-image d-flex align-items-center" style="
+aspect-ratio: 21/9; 
+min-height: 300px; 
+max-height: 560px;
+background-image: url('/public/img/contact-us.jpg');
+">
+    <div class="container text-white">
+        <div class="w-100" style="max-width: 500px">
+            <div style="font-size: 4rem;"><strong>About</strong></div>
+            <div style="font-size: 1.2rem;">Introduction About Our Team Member.</div>
         </div>
     </div>
+</div>
 
-    <div class="container my-5">
-        <div class="h1">Founding Team</div>
-        <div class="d-flex flex-wrap">
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
+<div class="container my-5">
+    <div class="h1">Founding Team</div>
+    <div class="d-flex flex-wrap">
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
+        </div>
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
+        </div>
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
         </div>
     </div>
+</div>
 
-    <div class="container my-5">
-        <div class="h1">Team Members</div>
-        <div class="d-flex flex-wrap">
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
-            <div class="m-3">
-                <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                    style="border-radius:50%; width:200px; height: 200px;">
-                <div class="h3">Shengliang Lu</div>
-                <div>Co-Founder, Managing Director</div>
-            </div>
+<div class="container my-5">
+    <div class="h1">Team Members</div>
+    <div class="d-flex flex-wrap">
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
+        </div>
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
+        </div>
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
+        </div>
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
+        </div>
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
+        </div>
+        <div class="m-3">
+            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+                style="border-radius:50%; width:200px; height: 200px;">
+            <div class="h3">Shengliang Lu</div>
+            <div>Co-Founder, Managing Director</div>
         </div>
     </div>
-
-    {{ partial "footer.html" .}}
-    {{ partial "foot.html" }}
-</body>
-
-</html>
+</div>
+{{ end }}

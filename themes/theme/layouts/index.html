@@ -1,18 +1,3 @@
-<html>
-
-<head>
-    <title>Insightic</title>
-    {{ partial "head.html" . }}
-</head>
-
-<body>
-    {{ partial "navbar.html" . }}
-
-    {{ partial "home/home.html" .}}
-
-    {{ partial "footer.html" .}}
-
-    {{ partial "foot.html" }}
-</body>
-
-</html>
+{{ define "content" }}
+{{ partial "home/home.html" . }}
+{{ end }}
