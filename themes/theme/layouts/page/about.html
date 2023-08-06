@@ -1,17 +1,6 @@
 {{ define "content" }}
-<div class="w-100 background-image d-flex align-items-center" style="
-aspect-ratio: 21/9; 
-min-height: 300px; 
-max-height: 560px;
-background-image: url('/public/img/contact-us.jpg');
-">
-    <div class="container text-white">
-        <div class="w-100" style="max-width: 500px">
-            <div style="font-size: 4rem;"><strong>About</strong></div>
-            <div style="font-size: 1.2rem;">Introduction About Our Team Member.</div>
-        </div>
-    </div>
-</div>
+
+{{ partial "hero.html" (dict "HeroTitle" "About" "HeroDescription" "Introduction About Our Team Members.") }}
 
 <div class="container my-5">
     <div class="h1">Founding Team</div>
