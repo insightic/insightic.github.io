@@ -23,6 +23,118 @@
             </div>
         </div>
     </div>
+    <div class="container my-5">
+        <div class="w-100 text-center my-3">
+            <div style="font-size: 3rem;">Offices</div>
+        </div>
+
+        <div class="row align-items-center my-3">
+            <div class="col-md-6 my-2 text-center">
+                <img class="rounded" src="/public/img/insightic-singapore.png" style="height: 320px;">
+            </div>
+            <div class="col-md-6 my-2">
+                <div class="h1">Singapore</div>
+                <div class="my-3">
+                    <div class="h5">Address</div>
+                    <div>#01-16, 75 Ayer Rajah Crescent Singapore 139953</div>
+                </div>
+
+                <div class="my-3">
+                    <div class="h5">Phone</div>
+                    <div>+65 6980 3110</div>
+                </div>
+
+                <div class="my-3">
+                    <div class="h5">Email</div>
+                    <div>info@vrcollab.com</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center my-3">
+            <div class="col-md-6 my-2 text-center">
+                <img class="rounded" src="/public/img/insightic-singapore.png" style="height: 320px;">
+            </div>
+            <div class="col-md-6 my-2">
+                <div class="h1">China</div>
+                <div class="my-3">
+                    <div class="h5">Address</div>
+                    <div>#01-16, 75 Ayer Rajah Crescent Singapore 139953</div>
+                </div>
+
+                <div class="my-3">
+                    <div class="h5">Phone</div>
+                    <div>+65 6980 3110</div>
+                </div>
+
+                <div class="my-3">
+                    <div class="h5">Email</div>
+                    <div>info@vrcollab.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="horizontal-line"></div>
+
+    <div class="container my-5">
+        <div class="w-100 text-center my-3">
+            <div style="font-size: 3rem;">Leave a message</div>
+            <div>Leave us a message and our team member will contact you shortly.</div>
+        </div>
+        <form class="mx-auto my-5" style="max-width: 640px;">
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <div class="form-group">
+                        <label>
+                            <span>Your Name</span> *
+                        </label>
+                        <input id="name" name="contact-name" type="text" class="form-control" required="">
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="form-group">
+                        <label>
+                            <span>Email Address</span> *
+                        </label>
+                        <input id="email" name="contact-email" type="email" class="form-control" required="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <div class="form-group">
+                        <label>
+                            <span>Company Name</span> *
+                        </label>
+                        <input id="company" name="contact-company" type="text" class="form-control" required="">
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="form-group">
+                        <label>
+                            <span>Contact Number</span> *
+                        </label>
+                        <input id="number" name="contact-number" type="text" class="form-control" required="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 my-2">
+                    <div class="form-group">
+                        <label>
+                            <span>Message</span>
+                        </label>
+                        <textarea id="message" class="form-control" name="contact-message" rows="10"
+                            placeholder="How can we help?" required=""></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center my-3">
+                <button class="btn btn-lg btn-primary">Send Enquiry</button>
+            </div>
+        </form>
+    </div>
 
     {{ partial "footer.html" .}}
     {{ partial "foot.html" }}
