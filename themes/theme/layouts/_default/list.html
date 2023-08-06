@@ -8,10 +8,21 @@
 <body>
     {{ partial "navbar.html" . }}
 
-    {{ partial "home/home.html" .}}
+    <div class="w-100 background-image d-flex align-items-center" style="
+        aspect-ratio: 21/9; 
+        min-height: 300px; 
+        max-height: 560px;
+        background-image: url('/public/img/contact-us.jpg');
+        ">
+        <div class="container text-white">
+            <div class="w-100" style="max-width: 500px">
+                <div style="font-size: 4rem;"><strong>Blog</strong></div>
+                <div style="font-size: 1.2rem;">News and updates of Insightic.</div>
+            </div>
+        </div>
+    </div>
 
     {{ partial "footer.html" .}}
-
     {{ partial "foot.html" }}
 </body>
 
