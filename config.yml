@@ -1,0 +1,35 @@
+baseURL: 'https://insightic.io'
+languageCode: 'en-us'
+title: 'Insightic - Web3 Compliance Made Easy'
+theme: 'theme'
+
+params:
+  foundingMembers:
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: Founder, CEO
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: Founder, CEO
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: Founder, CEO
+  teamMembers:
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: CMO
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: CMO
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: CMO
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: CMO
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: CMO
+    - name: Shengliang Lu
+      avatar: /public/img/founder.jpeg
+      title: CMO

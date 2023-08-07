@@ -3,68 +3,30 @@
 {{ partial "hero.html" (dict "HeroTitle" "About" "HeroDescription" "Introduction About Our Team Members.") }}
 
 <div class="container my-5">
-    <div class="h1">Founding Team</div>
+    <div class="h1">Founding Members</div>
     <div class="d-flex flex-wrap">
+        {{ range .Site.Params.foundingMembers }}
         <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+            <img class="my-2" src="{{ .avatar }}" alt="ryan-liew"
                 style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
+            <div class="h3">{{ .name }}</div>
+            <div>{{ .title }}</div>
         </div>
-        <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
-        </div>
-        <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
-        </div>
+        {{ end }}
     </div>
 </div>
 
 <div class="container my-5">
-    <div class="h1">Team Members</div>
+    <div class="h1">Founding Members</div>
     <div class="d-flex flex-wrap">
+        {{ range .Site.Params.teamMembers }}
         <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
+            <img class="my-2" src="{{ .avatar }}" alt="ryan-liew"
                 style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
+            <div class="h3">{{ .name }}</div>
+            <div>{{ .title }}</div>
         </div>
-        <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
-        </div>
-        <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
-        </div>
-        <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
-        </div>
-        <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
-        </div>
-        <div class="m-3">
-            <img class="my-2" src="/public/img/founder.jpeg" alt="ryan-liew"
-                style="border-radius:50%; width:200px; height: 200px;">
-            <div class="h3">Shengliang Lu</div>
-            <div>Co-Founder, Managing Director</div>
-        </div>
+        {{ end }}
     </div>
 </div>
 {{ end }}
