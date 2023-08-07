@@ -34,9 +34,9 @@ params:
     - name: Jason Ng
       avatar: /img/about/jason.jpeg
       title: Fullstack Software Engineer
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: CMO
+    - name: Boon Chong Peh
+      avatar: /img/about/boon-chong.jpeg
+      title: Backend Engineer
     - name: Shengliang Lu
       avatar: /public/img/founder.jpeg
       title: CMO
