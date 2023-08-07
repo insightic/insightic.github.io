@@ -2,4 +2,31 @@
 
 {{ partial "hero.html" (dict "HeroTitle" "Blog" "HeroDescription" "News and updates of Insightic.") }}
 
+<div class="container p-5">
+    <div class="row">
+        {{ range .Pages }}
+        <div class="col-lg-4 col-sm-6 col-xs-12 my-2">
+            <div class="d-flex flex-wrap my-2">
+                {{ if .Params.hero }}
+                <div class="w-100 mb-3">
+                    <a href="{{ .Permalink }}">
+                        <img class="w-100" src="{{ .Params.hero }}">
+                    </a>
+                </div>
+                {{ end }}
+                {{ range .Params.Tags }}
+                <div class="me-2 p-1 rounded text-white" style="background-color: #252B48; font-size: 0.8rem;">
+                    {{ . }}
+                </div>
+                {{ end }}
+            </div>
+            <div class="h4 mt-3"><a href="{{ .Permalink }}" style="text-decoration: none; color: black">{{ .Title }}</a>
+            </div>
+            <div class="my-2">{{ .Description }}</div>
+            <div class="text-secondary" style="font-size: 0.9rem;">{{ .Date.Format "Mon Jan 2 2006" }}</div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
 {{ end }}
