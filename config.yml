@@ -4,6 +4,20 @@ title: 'Insightic - Web3 Compliance Made Easy'
 theme: 'theme'
 
 params:
+  # Offices that are shown in the contact us page
+  offices:
+    - country: Singapore
+      map: /public/img/insightic-singapore.png
+      address: '#01-16, 75 Ayer Rajah Crescent Singapore 139953'
+      phone: +65 9000 0000
+      email: info@insightic.io
+    - country: Singapore
+      map: /public/img/insightic-singapore.png
+      address: '#01-16, 75 Ayer Rajah Crescent Singapore 139953'
+      phone: +65 9000 0000
+      email: info@insightic.io
+
+  # Founding Members that are shown in the about page
   foundingMembers:
     - name: Shengliang Lu
       avatar: /public/img/founder.jpeg
@@ -14,6 +28,8 @@ params:
     - name: Shengliang Lu
       avatar: /public/img/founder.jpeg
       title: Founder, CEO
+
+  # Team Members that are shown in the about page
   teamMembers:
     - name: Shengliang Lu
       avatar: /public/img/founder.jpeg

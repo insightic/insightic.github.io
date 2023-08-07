@@ -1,57 +1,37 @@
 {{ define "content" }}
 
-{{ partial "hero.html" (dict "HeroTitle" "Get in Touch" "HeroDescription" "Sometimes you need a little help from your friends. Or a Insightic support rep. Don't worry, we're here for you.") }}
+{{ partial "hero.html" (dict "HeroTitle" "Get in Touch" "HeroDescription" `Sometimes you need a little help from your
+friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
 
 <div class="container my-5">
     <div class="w-100 text-center my-3">
         <div style="font-size: 3rem;">Offices</div>
     </div>
 
+    {{ range .Site.Params.offices }}
     <div class="row align-items-center my-3">
         <div class="col-md-6 my-2 text-center">
-            <img class="rounded" src="/public/img/insightic-singapore.png" style="height: 320px;">
+            <img class="rounded" src="{{ .map }}" style="height: 320px;">
         </div>
         <div class="col-md-6 my-2">
-            <div class="h1">Singapore</div>
+            <div class="h1">{{ .country }}</div>
             <div class="my-3">
                 <div class="h5">Address</div>
-                <div>#01-16, 75 Ayer Rajah Crescent Singapore 139953</div>
+                <div>{{ .address }}</div>
             </div>
 
             <div class="my-3">
                 <div class="h5">Phone</div>
-                <div>+65 6980 3110</div>
+                <div>{{ .phone }}</div>
             </div>
 
             <div class="my-3">
                 <div class="h5">Email</div>
-                <div>info@vrcollab.com</div>
+                <div>{{ .email }}</div>
             </div>
         </div>
     </div>
-
-    <div class="row align-items-center my-3">
-        <div class="col-md-6 my-2 text-center">
-            <img class="rounded" src="/public/img/insightic-singapore.png" style="height: 320px;">
-        </div>
-        <div class="col-md-6 my-2">
-            <div class="h1">China</div>
-            <div class="my-3">
-                <div class="h5">Address</div>
-                <div>#01-16, 75 Ayer Rajah Crescent Singapore 139953</div>
-            </div>
-
-            <div class="my-3">
-                <div class="h5">Phone</div>
-                <div>+65 6980 3110</div>
-            </div>
-
-            <div class="my-3">
-                <div class="h5">Email</div>
-                <div>info@vrcollab.com</div>
-            </div>
-        </div>
-    </div>
+    {{ end }}
 </div>
 
 <div class="horizontal-line"></div>
