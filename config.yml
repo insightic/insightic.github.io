@@ -20,11 +20,11 @@ params:
   # Founding Members that are shown in the about page
   foundingMembers:
     - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: Founder, CEO
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: Founder, CEO
+      avatar: /img/about/shengliang.jpeg
+      title: Chief Executive Officer
+    - name: Bingsheng He
+      avatar: /img/about/bingsheng.jpg
+      title: Chief Scientific Officer
     - name: Shengliang Lu
       avatar: /public/img/founder.jpeg
       title: Founder, CEO
