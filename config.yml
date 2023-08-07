@@ -31,9 +31,9 @@ params:
 
   # Team Members that are shown in the about page
   teamMembers:
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: CMO
+    - name: Jason Ng
+      avatar: /img/about/jason.jpeg
+      title: Fullstack Software Engineer
     - name: Shengliang Lu
       avatar: /public/img/founder.jpeg
       title: CMO
