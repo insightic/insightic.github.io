@@ -31,15 +31,15 @@ params:
 
   # Team Members that are shown in the about page
   teamMembers:
+    - name: 'imwithye.eth'
+      avatar: /img/about/imwithye.png
+      title: Lead Developer
     - name: Jason Ng
       avatar: /img/about/jason.jpeg
-      title: Fullstack Software Engineer
+      title: Fullstack Software Developer
     - name: Boon Chong Peh
       avatar: /img/about/boon-chong.jpeg
-      title: Backend Engineer
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: CMO
+      title: Backend Developer
     - name: Shengliang Lu
       avatar: /public/img/founder.jpeg
       title: CMO
