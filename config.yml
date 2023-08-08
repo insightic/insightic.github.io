@@ -25,9 +25,6 @@ params:
     - name: Bingsheng He
       avatar: /img/about/bingsheng.jpg
       title: Chief Scientific Officer
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: Founder, CEO
 
   # Team Members that are shown in the about page
   teamMembers:
@@ -40,12 +37,12 @@ params:
     - name: Boon Chong Peh
       avatar: /img/about/boon-chong.jpeg
       title: Backend Developer
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
+    - name: Zhi Yong Ong
+      avatar: /img/about/zhiyong.jpeg
       title: CMO
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: CMO
-    - name: Shengliang Lu
-      avatar: /public/img/founder.jpeg
-      title: CMO
+    - name: Xiaofan Huang
+      avatar: /img/about/xiaofan.jpeg
+      title: Marketing Executive (Internship)
+    - name: Yuzhu Zou
+      avatar: /img/about/yuzhu.jpeg
+      title: Marketing Executive (Internship)
