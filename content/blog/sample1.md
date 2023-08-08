@@ -2,6 +2,7 @@
 title: "Markdown Syntax Guide"
 date: "2019-03-11"
 description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+hero: /img/shengliang.jpeg
 tags: ["markdown", "css", "html", "themes"]
 ---
 
