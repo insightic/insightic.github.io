@@ -24,7 +24,7 @@ params:
       title: Chief Executive Officer
     - name: Bingsheng He
       avatar: /img/about/bingsheng.jpg
-      title: Chief Scientific
+      title: Chief Scientist
 
   # Team Members that are shown in the about page
   teamMembers:
