@@ -2,11 +2,11 @@
 title: "Mentorship Arrangement with Northern Trust and NUS AIDF"
 date: "2023-08-11"
 description: "Announcement of New Mentorship Arrangement"
-hero: static/img/New Partnership Hero.png
+hero: /static/img/New Partnership Hero.png
 tags: ["new partnership"]
 ---
 
-![New Partnership](static/img/New Partnership Hero.png)
+![New Partnership](/static/img/New Partnership Hero.png)
 
 We are thrilled to share that we are a mentored startup under a collaboration between Northern Trust and National University of Singapore’s Asian Institute of Digital Finance (“NUS AIDF”).
 
