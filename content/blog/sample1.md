@@ -1,186 +1,29 @@
 ---
-title: "Markdown Syntax Guide"
-date: "2019-03-11"
-description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-hero: /img/shengliang.jpeg
-tags: ["markdown", "css", "html", "themes"]
+title: "Mentorship Arrangement with Northern Trust and Asian Institute of Digital Finance, National University of Singapore"
+date: "2023-08-11"
+description: "Mentorship Arrangement with Northern Trust and Asian Institute of Digital Finance, National University of Singapore"
+hero: /img/New Partnership Hero.png
+tags: ["new partnership"]
 ---
 
-# This is the title
-## This is the section title
+![New Partnership](/img/New Partnership Hero.png)
 
-This is a link [title](https://www.example.com)
+We are thrilled to share that we are a mentored startup under a collaboration between Northern Trust Asset Servicing (“Northern Trust”) and National University of Singapore’s Asian Institute of Digital Finance (“NUS AIDF”).
 
-![shengliang](/img/shengliang.jpeg)
+ - Northern Trust is one of the oldest and largest financial
+   institutions in the world. Headquartered in the United States, it
+   operate across 23 countries. In addition to asset servicing, it also
+   provides asset  management  and  wealth  management.
+   
+ - NUS AIDF is a university-level institute jointly founded by the
+   Monetary Authority of Singapore (“MAS”), National Research Foundation
+   (“NRF”) and NUS to develop Fintech research, technologies and
+   talents.
 
+This collaboration arrangement paves the way for us to combine industry expertise and mentorship from Northern Trust and NUS AIDF, with our technical expertise in digital assets risk assessment technology to develop industry-leading solutions for digital asset adoption.
 
+At Insightic,  our vision is to help Regulators, Central Banks, and Financial Institutions simplify compliance assessment processes, mitigate risks, and enable a safer adoption of Web3 and digital asset innovations.
 
-This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
+Stay tuned as we work closely together to develop innovative solutions for the space.
 
-<!--more-->
-
-## Headings
-
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
-
-# H1
-
-## H2
-
-### H3
-
-#### H4
-
-##### H5
-
-###### H6
-
-## Paragraph
-
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
-
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
-
-## Blockquotes
-
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
-
-#### Blockquote without attribution
-
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-> **Note** that you can use _Markdown syntax_ within a blockquote.
-
-#### Blockquote with attribution
-
-> Don't communicate by sharing memory, share memory by communicating.
->
-> — <cite>Rob Pike[^1]</cite>
-
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
-
-## Tables
-
-Tables aren't part of the core Markdown spec, but Hugo supports them out-of-the-box.
-
-| Name  | Age |
-| ----- | --- |
-| Bob   | 27  |
-| Alice | 23  |
-
-#### Inline Markdown within tables
-
-| Italics   | Bold     | Code   |
-| --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
-
-## Code Blocks
-
-#### Inline Code
-
-`This is Inline Code`
-
-#### Only `pre`
-
-<pre>
-This is pre text
-</pre>
-
-#### Code block with backticks
-
-```
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Example HTML5 Document</title>
-    </head>
-    <body>
-        <p>Test</p>
-    </body>
-</html>
-```
-
-#### Code block with backticks and language specified
-
-```html {linenos=true}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Example HTML5 Document</title>
-        <meta name="description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements.">
-    </head>
-    <body>
-        <p>Test</p>
-    </body>
-</html>
-```
-
-#### Code block indented with four spaces
-
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>Example HTML5 Document</title>
-    </head>
-    <body>
-      <p>Test</p>
-    </body>
-    </html>
-
-#### Code block with Hugo's internal highlight shortcode
-
-{{< highlight html >}}
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-{{< /highlight >}}
-
-#### Gist
-
-{{< gist spf13 7896402 >}}
-
-## List Types
-
-#### Ordered List
-
-1. First item
-2. Second item
-3. Third item
-
-#### Unordered List
-
--   List item
--   Another item
--   And another item
-
-#### Nested list
-
--   Fruit
-    -   Apple
-    -   Orange
-    -   Banana
--   Dairy
-    -   Milk
-    -   Cheese
-
-## Other Elements — abbr, sub, sup, kbd, mark
-
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+[LinkedIn](https://www.linkedin.com/company/insightic-io/), [Twitter](https://twitter.com/insightic_io), [Northern Trust Announcement](https://www.northerntrust.com/united-states/pr/2023/northern-trust-nus-school-of-computing-nus-asian-institute-of-digital-finance-blockchain-development)
