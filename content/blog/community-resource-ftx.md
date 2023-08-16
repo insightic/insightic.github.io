@@ -24,7 +24,7 @@ Nine days after the report, FTX entered and remains in Chapter 11 bankruptcy pro
 <br>
 15 Jun 2023: [FTX claims portal launched, will be officially available on Jul 3.](https://twitter.com/AFTXcreditor/status/1669324304654163968)
 
-### Sam Bankman-Fried's arrest and charge
+### Arrest and Charges
 Dec 13 2022: [The U.S. Securities and Exchange Commission charges Bankman-Fried for defrauding FTX investors.](https://www.coindesk.com/policy/2022/12/13/us-sec-charges-sam-bankman-fried-for-defrauding-ftx-investors/)
 <br>
 Dec 12 2022: [Police arrest Bankman-Fried in the Bahamas, with the US expected to file for his extradition. US authorities decline to comment on potential charges, but the New York Times reports the charges include wire fraud, wire fraud conspiracy, securities.](https://www.cnbc.com/2022/12/12/ftx-founder-sam-bankman-fried-arrested-in-the-bahamas-after-us-files-criminal-charges.html) 
@@ -44,14 +44,14 @@ Nov 12 2022: [Reuters reports at least $1 billion of customer funds have vanish
 <br>
 Nov 11 2022: [FTX starts voluntary Chapter 11 proceedings in the US, along with its US unit, crypto trading firm Alameda Research and nearly 130 other affiliates. Bankman-Fried resigns as CEO.](https://www.coindesk.com/policy/2022/11/11/ftx-files-for-bankruptcy-protections-in-us/)
 
-### Attempts to rescue FTX
+### Rescue Attempts
 Nov 10 2022: [FTX suspends onboarding of new clients as well as withdrawals until further notice. Bankman-Fried tells staff in a memo that he is scrambling to raise funds, and has discussed raising $1 billion from Justin Sun, founder of the crypto token Tron.](https://www.reuters.com/technology/ftx-suspends-onboarding-new-clients-2022-11-10/)
 <br>
 Nov 9 2022: [Binance decides against pursuing a bailout of FTX.](https://www.cnbc.com/2022/11/09/binance-backs-out-of-ftx-rescue-leaving-the-crypto-exchange-on-the-brink-of-collapse.html)
 <br>
 Nov 8 2022: [Unable to withdraw; Binance says it is planning a deal to acquire FTX.](https://www.coindesk.com/layer2/2022/11/09/why-did-ftx-pause-withdrawals-if-it-wasnt-trading-customer-funds/)
 
-### Speculations of collapse
+### Collapse Speculations
 Nov 7 2022: [Bankman-Fried says “FTX is fine. Assets are fine”; Alameda willing to buy FTT from Binance; Binance announced the sale of FTT.](https://cryptopotato.com/sam-bankman-fried-responds-to-cz-says-ftx-is-fine/)
 <br>
 Nov 6 2022: [Alameda clarification; Binance CEO Changpeng Zhao says his firm plans to liquidate its holdings of FTT due to unspecified “recent revelations”.](https://twitter.com/carolinecapital/status/1589264375042707458)
@@ -83,4 +83,4 @@ Jul 2021: [FTX concludes a $900 million funding round, which values the company
 <br>
 Aug 2020: [FTX acquires Blockfolio, a cryptocurrency portfolio tracking app, for $150 million.](https://www.coindesk.com/markets/2020/08/25/ftx-exchanges-150m-deal-for-mobile-first-blockfolio-is-a-retail-trading-play/)
 <br>
-May 2019: Sam Bankman-Fried and Gary Wang found FTX, the CEO and operator of cryptocurrency exchange and crypto hedge fund.
+May 2019: [Sam Bankman-Fried and Gary Wang found FTX, the CEO and operator of cryptocurrency exchange and crypto hedge fund.](https://www.cnbc.com/2022/12/18/how-sam-bankman-fried-ran-8-billion-fraud-government-prosecutors.html)
