@@ -47,6 +47,10 @@
       rgba(29, 31, 42, 0.9) 99%);
 }
 
+.blog-post {
+  max-width: 720px;
+}
+
 .blog-post img {
   width: 100%;
 }
