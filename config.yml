@@ -3,6 +3,11 @@ languageCode: 'en-us'
 title: 'Insightic - Web3 Compliance Made Easy'
 theme: 'theme'
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 params:
   # Offices that are shown in the contact us page
   offices:
