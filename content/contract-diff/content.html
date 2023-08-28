@@ -1,65 +1,109 @@
 <div class="container p-3">
-    <div class="w-100 text-center my-3">
-        <img src="/logo.png" alt="Insightic Logo" style="width: 60px; height: 60px;">
-        <h2>Contract Diff</h2>
-        <div class="w-100 mx-auto" style="max-width: 720px;">Contract Diff is a tool utilized for cross-validation and
-            examination of whitepapers and smart contracts.
-            By scrutinizing the whitepaper and smart contract, Contract Diff possesses the ability to uncover
-            disparities between them and provide appropriate warnings.</div>
-    </div>
-
-    <div class="w-100 text-center mx-auto my-3 border rounded p-3" style="max-width: 640px;">
-        <h3>Step 1</h3>
-        <div class="w-100 my-2 mx-auto">Upload whitepaper</div>
-        <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-            <input class="form-control" type="file" id="whitepaperFile">
+    <div id="submissionView" style="display: none;">
+        <div class="w-100 text-center my-3">
+            <img src="/logo.png" alt="Insightic Logo" style="width: 60px; height: 60px;">
+            <h2>Contract Diff</h2>
+            <div class="w-100 mx-auto" style="max-width: 720px;">Contract Diff is a tool utilized for cross-validation
+                and
+                examination of whitepapers and smart contracts.
+                By scrutinizing the whitepaper and smart contract, Contract Diff possesses the ability to uncover
+                disparities between them and provide appropriate warnings.</div>
         </div>
-    </div>
 
-    <div class="w-100 text-center mx-auto my-3 border rounded p-3" style="max-width: 640px;">
-        <h3>Step 2</h3>
-        <div class="w-100 my-2 mx-auto">Upload Smart Contract code</div>
-        <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-            <input class="form-control" type="file" id="codeFile">
-        </div>
-    </div>
-
-    <div class="w-100 text-center my-3">
-        <button class="btn btn-lg btn-danger text-center" id="submit" style="width: 200px;">
-            <div id="submit-show-risks" class="mx-auto" style="display: block;">Show Risks!</div>
-            <div id="submit-show-loading" class="mx-auto spinner-border" style="display: none;">
+        <div class="w-100 text-center mx-auto my-3 border rounded p-3" style="max-width: 640px;">
+            <h3>Step 1</h3>
+            <div class="w-100 my-2 mx-auto">Upload whitepaper</div>
+            <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
+                <input class="form-control" type="file" id="whitepaperFile">
             </div>
-        </button>
+        </div>
+
+        <div class="w-100 text-center mx-auto my-3 border rounded p-3" style="max-width: 640px;">
+            <h3>Step 2</h3>
+            <div class="w-100 my-2 mx-auto">Upload Smart Contract code</div>
+            <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
+                <input class="form-control" type="file" id="codeFile">
+            </div>
+        </div>
+
+        <div class="w-100 text-center my-3">
+            <button class="btn btn-lg btn-danger text-center" id="submit" style="width: 200px;">
+                <div id="submit-show-risks" class="mx-auto" style="display: block;">Show Me Risks!</div>
+                <div id="submit-show-loading" class="mx-auto spinner-border" style="display: none;">
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div id="resultsView" style="display: block;">
+        <div class="w-100 text-center my-3">
+            <img src="/logo.png" alt="Insightic Logo" style="width: 60px; height: 60px;">
+            <h2>Contract Diff - Results</h2>
+            <div>Job ID: <span id="jobId"></span></div>
+        </div>
+
+        <div class="w-100 my-3">
+            <table class="table">
+                <thead class="table-dark">
+                    <th width="30%">Description</th>
+                    <th width="30%">Whitepaper</th>
+                    <th width="30%">Code</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>sdf</td>
+                        <td>sdf</td>
+                        <td>sdf</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 <script>
-    (function () {
-        const whitepaperFileEle = $('#whitepaperFile');
-        const codeFileEle = $('#codeFile');
-        const submitEle = $('#submit');
+    (async function () {
+        const uri = new URL(window.location.href);
+        const jobId = uri.searchParams.get('jobId');
+        if (!jobId) {
+            // No job ID, show submission view
+            $('#submissionView').style.display = 'block';
+            $('#resultsView').style.display = 'none';
 
-        submitEle.addEventListener('click', async function () {
-            const whitepaperFile = whitepaperFileEle.files[0];
-            const codeFile = codeFileEle.files[0];
+            const whitepaperFileEle = $('#whitepaperFile');
+            const codeFileEle = $('#codeFile');
+            const submitEle = $('#submit');
 
-            if (!whitepaperFile || !codeFile) {
-                alert('You have choose both Whitepaper and Code!');
-                return;
-            }
+            submitEle.addEventListener('click', async function () {
+                const whitepaperFile = whitepaperFileEle.files[0];
+                const codeFile = codeFileEle.files[0];
 
-            $('#submit-show-risks').style.display = 'none';
-            $('#submit-show-loading').style.display = 'block';
-            submitEle.disabled = true;
+                if (!whitepaperFile || !codeFile) {
+                    alert('You have choose both Whitepaper and Code!');
+                    return;
+                }
 
-            const whitepaperObjectId = await window.uploadFile(whitepaperFile);
-            const codeObjectId = await window.uploadFile(codeFile);
+                $('#submit-show-risks').style.display = 'none';
+                $('#submit-show-loading').style.display = 'block';
+                submitEle.disabled = true;
 
-            $('#submit-show-risks').style.display = 'block';
-            $('#submit-show-loading').style.display = 'none';
-            submitEle.disabled = false;
+                const whitepaperObjectId = await window.uploadFile(whitepaperFile);
+                const codeObjectId = await window.uploadFile(codeFile);
 
-            console.log(whitepaperObjectId, codeObjectId);
-        });
-    })();
+                $('#submit-show-risks').style.display = 'block';
+                $('#submit-show-loading').style.display = 'none';
+                submitEle.disabled = false;
+
+                console.log(whitepaperObjectId, codeObjectId);
+            });
+        } else {
+            // Job ID exists, show results view
+            $('#submissionView').style.display = 'none';
+            $('#resultsView').style.display = 'block';
+            $('#jobId').innerText = jobId;
+
+            const resp = await axios.get(`http://13.250.10.129/jobs/${jobId}`);
+            console.log(resp);
+        }
+    })().then();
 </script>
