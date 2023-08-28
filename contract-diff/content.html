@@ -91,7 +91,7 @@
                 const whitepaperObjectId = await window.uploadFile(whitepaperFile);
                 const codeObjectId = await window.uploadFile(codeFile);
 
-                const resp = await axios.post("http://13.250.10.129/jobs", {
+                const resp = await axios.post("https://validation-api.insightic.io/jobs", {
                     whitepaper_id: whitepaperObjectId,
                     code_id: codeObjectId
                 });
@@ -109,7 +109,7 @@
             $('#resultsView').style.display = 'block';
             $('#jobId').innerText = jobId;
 
-            const resp = await axios.get(`http://13.250.10.129/jobs/${jobId}`);
+            const resp = await axios.get(`https://validation-api.insightic.io/jobs/${jobId}`);
             const results = resp.data.results.sort((a, b) => a.id - b.id);
 
             $('#results').innerHTML = results.map((result) => {
