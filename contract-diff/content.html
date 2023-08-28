@@ -43,21 +43,18 @@
             <div>Job ID: <span>{{ jobId }}</span></div>
         </div>
 
-        <div class="w-100 my-3 mx-auto" style="max-width: 720px;">
-            <table class="table">
-                <thead class="table-dark">
-                    <th width="30%">Description</th>
-                    <th width="30%">Whitepaper</th>
-                    <th width="30%">Code</th>
-                </thead>
-                <tbody v-for="result in results" :key="result.id">
-                    <tr>
-                        <td>{{ result.description }}</td>
-                        <td>{{ result.whitepaper }}</td>
-                        <td>{{ result.code }}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="w-100 my-3 mx-auto">
+            <div v-if="loading" class="text-center my-5">
+                <div class="spinner-border">
+                </div>
+            </div>
+            <div v-else class="row">
+                <div class="col-md-4 my-2" v-for="result in results" :key="result.id">
+                    <result-component :title="result.description" :whitepaper="result.whitepaper" :code="result.code"
+                        :variant="getVariant(result.whitepaper, result.code)">
+                    </result-component>
+                </div>
+            </div>
         </div>
 
         <div class="w-100 text-center my-3">
@@ -68,45 +65,90 @@
     </div>
 </div>
 
+<div id="result-component-template" style="display: none;">
+    <div class="rounded p-3 bg-opacity-25 h-100 w-100"
+        :class="{'bg-danger': variant == 'danger', 'bg-warn': variant == 'warn', 'bg-success': variant == 'success'}">
+        <div class="d-flex align-items-top">
+            <i v-if="variant=='danger'" class="bi bi-x-circle-fill me-2 text-danger"></i>
+            <i v-if="variant=='success'" class="bi bi-check-circle-fill me-2 text-success"></i>
+
+            <div class="text-break">
+                <div style="font-size: 1.05rem;"><b>{{ title }}</b></div>
+                <div class="small mb-2">{{ description }}</div>
+                <div class="small"><b><u>Whitepaper</u></b></div>
+                <div class="small">{{ whitepaper }}</div>
+                <div class="small"><b><u>Code</u></b></div>
+                <div class="small">{{ code }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     (async function () {
-        const { createApp, onMounted, ref } = Vue
+        const { createApp } = Vue
 
-        createApp({
-            setup() {
-                const jobId = ref(new URL(window.location.href).searchParams.get('jobId'));
-                const loading = ref(false);
-                const whitepaperFile = ref();
-                const codeFile = ref();
-                const results = ref();
+        const ResultComponent = {
+            props: {
+                variant: { type: String, default: 'success' },
+                title: { type: String, default: '' },
+                description: { type: String, default: '' },
+                whitepaper: { type: String, default: '' },
+                code: { type: String, default: '' }
+            },
+            template: $('#result-component-template').innerHTML
+        };
 
-                onMounted(async () => {
-                    if (!jobId.value) return;
-
+        const App = {
+            async created() {
+                if (!this.jobId) {
+                    this.loading = false;
+                } else {
+                    this.loading = true;
+                    const resp = await axios.get(`https://validation-api.insightic.io/jobs/${this.jobId}`);
+                    this.results = resp.data.results.sort((a, b) => a.id - b.id);
                     const refreshInterval = setInterval(async () => {
-                        const resp = await axios.get(`https://validation-api.insightic.io/jobs/${jobId.value}`);
-                        results.value = resp.data.results.sort((a, b) => a.id - b.id);
+                        const resp = await axios.get(`https://validation-api.insightic.io/jobs/${this.jobId}`);
+                        this.results = resp.data.results.sort((a, b) => a.id - b.id);
                         if (resp.data.status === 'accepted') clearInterval(refreshInterval);
                     }, 3000);
-                });
-
-                function onWhitepaperPicked(evt) {
-                    whitepaperFile.value = evt.target.files[0];
+                    this.loading = false;
                 }
-
-                function onCodePicked(evt) {
-                    codeFile.value = evt.target.files[0];
+            },
+            data: () => ({
+                loading: false,
+                whitepaperFile: null,
+                codeFile: null,
+                results: []
+            }),
+            computed: {
+                jobId() {
+                    return new URL(window.location.href).searchParams.get('jobId')
                 }
-
-                async function submit() {
-                    if (!whitepaperFile.value || !codeFile.value) {
+            },
+            methods: {
+                getVariant(whitepaper, code) {
+                    if (whitepaper == code) {
+                        return 'success'
+                    } else {
+                        return 'danger'
+                    }
+                },
+                onWhitepaperPicked(evt) {
+                    this.whitepaperFile = evt.target.files[0];
+                },
+                onCodePicked(evt) {
+                    this.codeFile = evt.target.files[0];
+                },
+                async submit() {
+                    if (!this.whitepaperFile || !this.codeFile) {
                         alert('You have choose both Whitepaper and Code!');
                         return;
                     }
 
-                    loading.value = true;
-                    const whitepaperObjectId = await window.uploadFile(whitepaperFile);
-                    const codeObjectId = await window.uploadFile(codeFile);
+                    this.loading = true;
+                    const whitepaperObjectId = await window.uploadFile(this.whitepaperFile);
+                    const codeObjectId = await window.uploadFile(this.codeFile);
 
                     const resp = await axios.post('https://validation-api.insightic.io/jobs', {
                         whitepaper_id: whitepaperObjectId,
@@ -116,12 +158,11 @@
                     const jobId = resp.data.guid;
                     window.location.href = `/contract-diff?jobId=${jobId}`;
                 }
-
-                return {
-                    jobId, loading, whitepaperFile, codeFile, results,
-                    onWhitepaperPicked, onCodePicked, submit
-                };
             }
-        }).mount('#app');
+        };
+
+        const app = createApp(App);
+        app.component('ResultComponent', ResultComponent);
+        app.mount('#app');
     })();
 </script>
