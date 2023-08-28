@@ -109,18 +109,25 @@
             $('#resultsView').style.display = 'block';
             $('#jobId').innerText = jobId;
 
-            const resp = await axios.get(`https://validation-api.insightic.io/jobs/${jobId}`);
-            const results = resp.data.results.sort((a, b) => a.id - b.id);
+            while (true) {
+                const resp = await axios.get(`https://validation-api.insightic.io/jobs/${jobId}`);
+                const results = resp.data.results.sort((a, b) => a.id - b.id);
 
-            $('#results').innerHTML = results.map((result) => {
-                return `
+                $('#results').innerHTML = results.map((result) => {
+                    return `
                     <tr>
                         <td>${result.description}</td>
                         <td>${result.whitepaper}</td>
                         <td>${result.code}</td>
                     </tr>
                 `;
-            }).join('');
+                }).join('');
+
+                if (resp.status == "accepted") {
+                    break;
+                }
+            }
+
         }
     })().then();
 </script>
