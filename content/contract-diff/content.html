@@ -1,5 +1,5 @@
-<div class="container p-3">
-    <div id="submissionView" style="display: none;">
+<div id="app" class="container p-3">
+    <div v-if="!jobId">
         <div class="w-100 text-center my-3">
             <img src="/logo.png" alt="Insightic Logo" style="width: 60px; height: 60px;">
             <h2>Contract Diff</h2>
@@ -14,7 +14,7 @@
             <h3>Step 1</h3>
             <div class="w-100 my-2 mx-auto">Upload whitepaper</div>
             <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-                <input class="form-control" type="file" id="whitepaperFile">
+                <input class="form-control" type="file" @change="onWhitepaperPicked">
             </div>
         </div>
 
@@ -22,24 +22,25 @@
             <h3>Step 2</h3>
             <div class="w-100 my-2 mx-auto">Upload Smart Contract code</div>
             <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-                <input class="form-control" type="file" id="codeFile">
+                <input class="form-control" type="file" @change="onCodePicked">
             </div>
         </div>
 
         <div class="w-100 text-center my-3">
-            <button class="btn btn-lg btn-danger text-center" id="submit" style="width: 200px;">
-                <div id="submit-show-risks" class="mx-auto" style="display: block;">Show Me Risks!</div>
-                <div id="submit-show-loading" class="mx-auto spinner-border" style="display: none;">
+            <button class="btn btn-lg btn-danger text-center" style="width: 200px;" @click="submit()"
+                :disabled="loading">
+                <div v-if="!loading" class="mx-auto d-block">Show Me Risks!</div>
+                <div v-else class="mx-auto d-block spinner-border">
                 </div>
             </button>
         </div>
     </div>
 
-    <div id="resultsView" style="display: block;">
+    <div v-else>
         <div class="w-100 text-center my-3">
             <img src="/logo.png" alt="Insightic Logo" style="width: 60px; height: 60px;">
             <h2>Contract Diff - Results</h2>
-            <div>Job ID: <span id="jobId"></span></div>
+            <div>Job ID: <span>{{ jobId }}</span></div>
         </div>
 
         <div class="w-100 my-3 mx-auto" style="max-width: 720px;">
@@ -49,7 +50,12 @@
                     <th width="30%">Whitepaper</th>
                     <th width="30%">Code</th>
                 </thead>
-                <tbody id="results">
+                <tbody v-for="result in results" :key="result.id">
+                    <tr>
+                        <td>{{ result.description }}</td>
+                        <td>{{ result.whitepaper }}</td>
+                        <td>{{ result.code }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -64,70 +70,58 @@
 
 <script>
     (async function () {
-        const uri = new URL(window.location.href);
-        const jobId = uri.searchParams.get('jobId');
-        if (!jobId) {
-            // No job ID, show submission view
-            $('#submissionView').style.display = 'block';
-            $('#resultsView').style.display = 'none';
+        const { createApp, onMounted, ref } = Vue
 
-            const whitepaperFileEle = $('#whitepaperFile');
-            const codeFileEle = $('#codeFile');
-            const submitEle = $('#submit');
+        createApp({
+            setup() {
+                const jobId = ref(new URL(window.location.href).searchParams.get('jobId'));
+                const loading = ref(false);
+                const whitepaperFile = ref();
+                const codeFile = ref();
+                const results = ref();
 
-            submitEle.addEventListener('click', async function () {
-                const whitepaperFile = whitepaperFileEle.files[0];
-                const codeFile = codeFileEle.files[0];
+                onMounted(async () => {
+                    if (!jobId.value) return;
 
-                if (!whitepaperFile || !codeFile) {
-                    alert('You have choose both Whitepaper and Code!');
-                    return;
-                }
-
-                $('#submit-show-risks').style.display = 'none';
-                $('#submit-show-loading').style.display = 'block';
-                submitEle.disabled = true;
-
-                const whitepaperObjectId = await window.uploadFile(whitepaperFile);
-                const codeObjectId = await window.uploadFile(codeFile);
-
-                const resp = await axios.post("https://validation-api.insightic.io/jobs", {
-                    whitepaper_id: whitepaperObjectId,
-                    code_id: codeObjectId
+                    const refreshInterval = setInterval(async () => {
+                        const resp = await axios.get(`https://validation-api.insightic.io/jobs/${jobId.value}`);
+                        results.value = resp.data.results.sort((a, b) => a.id - b.id);
+                        if (resp.data.status === 'accepted') clearInterval(refreshInterval);
+                    }, 3000);
                 });
 
-                const jobId = resp.data.guid;
-                window.location.href = `/contract-diff?jobId=${jobId}`;
-
-                $('#submit-show-risks').style.display = 'block';
-                $('#submit-show-loading').style.display = 'none';
-                submitEle.disabled = false;
-            });
-        } else {
-            // Job ID exists, show results view
-            $('#submissionView').style.display = 'none';
-            $('#resultsView').style.display = 'block';
-            $('#jobId').innerText = jobId;
-
-            while (true) {
-                const resp = await axios.get(`https://validation-api.insightic.io/jobs/${jobId}`);
-                const results = resp.data.results.sort((a, b) => a.id - b.id);
-
-                $('#results').innerHTML = results.map((result) => {
-                    return `
-                    <tr>
-                        <td>${result.description}</td>
-                        <td>${result.whitepaper}</td>
-                        <td>${result.code}</td>
-                    </tr>
-                `;
-                }).join('');
-
-                if (resp.status == "accepted") {
-                    break;
+                function onWhitepaperPicked(evt) {
+                    whitepaperFile.value = evt.target.files[0];
                 }
-            }
 
-        }
-    })().then();
+                function onCodePicked(evt) {
+                    codeFile.value = evt.target.files[0];
+                }
+
+                async function submit() {
+                    if (!whitepaperFile.value || !codeFile.value) {
+                        alert('You have choose both Whitepaper and Code!');
+                        return;
+                    }
+
+                    loading.value = true;
+                    const whitepaperObjectId = await window.uploadFile(whitepaperFile);
+                    const codeObjectId = await window.uploadFile(codeFile);
+
+                    const resp = await axios.post('https://validation-api.insightic.io/jobs', {
+                        whitepaper_id: whitepaperObjectId,
+                        code_id: codeObjectId
+                    });
+
+                    const jobId = resp.data.guid;
+                    window.location.href = `/contract-diff?jobId=${jobId}`;
+                }
+
+                return {
+                    jobId, loading, whitepaperFile, codeFile, results,
+                    onWhitepaperPicked, onCodePicked, submit
+                };
+            }
+        }).mount('#app');
+    })();
 </script>
