@@ -70,43 +70,47 @@
 
 <script>
     (async function () {
-        const { createApp, onMounted, ref } = Vue
+        const { createApp, defineComponent, onMounted, ref } = Vue
 
         createApp({
-            setup() {
-                const jobId = ref(new URL(window.location.href).searchParams.get('jobId'));
-                const loading = ref(false);
-                const whitepaperFile = ref();
-                const codeFile = ref();
-                const results = ref();
+            created() {
+                if (!this.jobId) return;
 
-                onMounted(async () => {
-                    if (!jobId.value) return;
-
-                    const refreshInterval = setInterval(async () => {
-                        const resp = await axios.get(`https://validation-api.insightic.io/jobs/${jobId.value}`);
-                        results.value = resp.data.results.sort((a, b) => a.id - b.id);
-                        if (resp.data.status === 'accepted') clearInterval(refreshInterval);
-                    }, 3000);
-                });
-
-                function onWhitepaperPicked(evt) {
-                    whitepaperFile.value = evt.target.files[0];
+                const refreshInterval = setInterval(async () => {
+                    const resp = await axios.get(`https://validation-api.insightic.io/jobs/${this.jobId}`);
+                    this.results = resp.data.results.sort((a, b) => a.id - b.id);
+                    if (resp.data.status === 'accepted') clearInterval(refreshInterval);
+                }, 3000);
+            },
+            data() {
+                return {
+                    loading: false,
+                    whitepaperFile: null,
+                    codeFile: null,
+                    results: []
                 }
-
-                function onCodePicked(evt) {
-                    codeFile.value = evt.target.files[0];
+            },
+            computed: {
+                jobId() {
+                    return new URL(window.location.href).searchParams.get('jobId')
                 }
-
-                async function submit() {
-                    if (!whitepaperFile.value || !codeFile.value) {
+            },
+            methods: {
+                onWhitepaperPicked(evt) {
+                    this.whitepaperFile = evt.target.files[0];
+                },
+                onCodePicked(evt) {
+                    this.codeFile = evt.target.files[0];
+                },
+                async submit() {
+                    if (!this.whitepaperFile || !this.codeFile) {
                         alert('You have choose both Whitepaper and Code!');
                         return;
                     }
 
-                    loading.value = true;
-                    const whitepaperObjectId = await window.uploadFile(whitepaperFile);
-                    const codeObjectId = await window.uploadFile(codeFile);
+                    this.loading = true;
+                    const whitepaperObjectId = await window.uploadFile(this.whitepaperFile);
+                    const codeObjectId = await window.uploadFile(this.codeFile);
 
                     const resp = await axios.post('https://validation-api.insightic.io/jobs', {
                         whitepaper_id: whitepaperObjectId,
@@ -116,11 +120,6 @@
                     const jobId = resp.data.guid;
                     window.location.href = `/contract-diff?jobId=${jobId}`;
                 }
-
-                return {
-                    jobId, loading, whitepaperFile, codeFile, results,
-                    onWhitepaperPicked, onCodePicked, submit
-                };
             }
         }).mount('#app');
     })();
