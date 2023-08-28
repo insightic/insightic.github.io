@@ -91,11 +91,17 @@
                 const whitepaperObjectId = await window.uploadFile(whitepaperFile);
                 const codeObjectId = await window.uploadFile(codeFile);
 
+                const resp = await axios.post("http://13.250.10.129/jobs", {
+                    whitepaper_id: whitepaperObjectId,
+                    code_id: codeObjectId
+                });
+
+                const jobId = resp.data.guid;
+                window.location.href = `/contract-diff?jobId=${jobId}`;
+
                 $('#submit-show-risks').style.display = 'block';
                 $('#submit-show-loading').style.display = 'none';
                 submitEle.disabled = false;
-
-                console.log(whitepaperObjectId, codeObjectId);
             });
         } else {
             // Job ID exists, show results view
