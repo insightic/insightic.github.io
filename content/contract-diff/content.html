@@ -12,7 +12,7 @@
         <h3>Step 1</h3>
         <div class="w-100 my-2 mx-auto">Upload whitepaper</div>
         <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-            <input class="form-control" type="file" id="fileInput1">
+            <input class="form-control" type="file" id="whitepaperFile">
         </div>
     </div>
 
@@ -20,86 +20,46 @@
         <h3>Step 2</h3>
         <div class="w-100 my-2 mx-auto">Upload Smart Contract code</div>
         <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-            <input class="form-control" type="file" id="fileInput2">
+            <input class="form-control" type="file" id="codeFile">
         </div>
     </div>
 
     <div class="w-100 text-center my-3">
-        <button class="btn btn-lg btn-danger" id="submit">Show Risks!</button>
+        <button class="btn btn-lg btn-danger text-center" id="submit" style="width: 200px;">
+            <div id="submit-show-risks" class="mx-auto" style="display: block;">Show Risks!</div>
+            <div id="submit-show-loading" class="mx-auto spinner-border" style="display: none;">
+            </div>
+        </button>
     </div>
 </div>
 
 <script>
-    const fileInput1 = document.getElementById('fileInput1');
-    const fileInput2 = document.getElementById('fileInput2');
-    const submit = document.getElementById('submit');
-    let selectedFile1;
-    let selectedFile2;
+    (function () {
+        const whitepaperFileEle = $('#whitepaperFile');
+        const codeFileEle = $('#codeFile');
+        const submitEle = $('#submit');
 
-    fileInput1.addEventListener('change', (event) => {
-        selectedFile1 = event.target.files[0];
-    });
+        submitEle.addEventListener('click', async function () {
+            const whitepaperFile = whitepaperFileEle.files[0];
+            const codeFile = codeFileEle.files[0];
 
-    fileInput2.addEventListener('change', (event) => {
-        selectedFile2 = event.target.files[0];
-    });
-
-    submit.addEventListener("click", function () {
-        if (!selectedFile1 || !selectedFile2) {
-            alert("You have choose both WhitePaper and Code!");
-            return;
-        }
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://staging-api.insightic.io/preSignedPut", true);
-        let requestBody1 = {
-            body1: selectedFile1,
-        };
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                let responseData = xhr.responseText;
-                let responseObject = JSON.parse(responseData);
-                let url = responseObject["payload"]["URL"];
-
-                let xhr1 = new XMLHttpRequest();
-                xhr1.open("PUT", url, true);
-
-                xhr1.onload = function () {
-                    if (xhr1.status === 200) {
-                        let responseData1 = xhr1.responseText;
-                        console.log("Second Response:", responseData1);
-                    }
-                };
-
-                xhr1.send(requestBody1);
+            if (!whitepaperFile || !codeFile) {
+                alert('You have choose both Whitepaper and Code!');
+                return;
             }
-        };
-        xhr.send();
 
-        let xhr2 = new XMLHttpRequest();
-        xhr2.open("POST", "https://staging-api.insightic.io/preSignedPut", true);
-        let requestBody2 = {
-            body2: selectedFile2,
-        };
-        xhr2.onload = function () {
-            if (xhr2.status === 200) {
-                let responseData = xhr2.responseText;
-                let responseObject = JSON.parse(responseData);
-                let url = responseObject["payload"]["URL"];
+            $('#submit-show-risks').style.display = 'none';
+            $('#submit-show-loading').style.display = 'block';
+            submitEle.disabled = true;
 
-                let xhr3 = new XMLHttpRequest();
-                xhr3.open("PUT", url, true);
+            const whitepaperObjectId = await window.uploadFile(whitepaperFile);
+            const codeObjectId = await window.uploadFile(codeFile);
 
-                xhr3.onload = function () {
-                    if (xhr3.status === 200) {
-                        let responseData2 = xhr3.responseText;
-                        console.log("Second Response:", responseData2);
-                    }
-                };
+            $('#submit-show-risks').style.display = 'block';
+            $('#submit-show-loading').style.display = 'none';
+            submitEle.disabled = false;
 
-                xhr3.send(requestBody2);
-            }
-        };
-        xhr2.send();
-        window.location.pathname = '/wait';
-    });
+            console.log(whitepaperObjectId, codeObjectId);
+        });
+    })();
 </script>
