@@ -42,21 +42,22 @@
             <div>Job ID: <span id="jobId"></span></div>
         </div>
 
-        <div class="w-100 my-3">
+        <div class="w-100 my-3 mx-auto" style="max-width: 720px;">
             <table class="table">
                 <thead class="table-dark">
                     <th width="30%">Description</th>
                     <th width="30%">Whitepaper</th>
                     <th width="30%">Code</th>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>sdf</td>
-                        <td>sdf</td>
-                        <td>sdf</td>
-                    </tr>
+                <tbody id="results">
                 </tbody>
             </table>
+        </div>
+
+        <div class="w-100 text-center my-3">
+            <a class="btn btn-lg btn-primary text-center" style="width: 200px;" type="button" href="/contract-diff">
+                Try again
+            </a>
         </div>
     </div>
 </div>
@@ -103,7 +104,17 @@
             $('#jobId').innerText = jobId;
 
             const resp = await axios.get(`http://13.250.10.129/jobs/${jobId}`);
-            console.log(resp);
+            const results = resp.data.results.sort((a, b) => a.id - b.id);
+
+            $('#results').innerHTML = results.map((result) => {
+                return `
+                    <tr>
+                        <td>${result.description}</td>
+                        <td>${result.whitepaper}</td>
+                        <td>${result.code}</td>
+                    </tr>
+                `;
+            }).join('');
         }
     })().then();
 </script>
