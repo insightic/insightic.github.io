@@ -1,167 +1,323 @@
 <div id="app" class="container p-3">
-    <div v-if="!jobId">
-        <div class="w-100 text-center my-3">
-            <img src="/logo.png" alt="Insightic Logo" style="width: 60px; height: 60px;">
-            <h2>Contract Diff</h2>
-            <div class="w-100 mx-auto" style="max-width: 720px;">Contract Diff is a tool utilized for cross-validation
-                and
-                examination of whitepapers and smart contracts.
-                By scrutinizing the whitepaper and smart contract, Contract Diff possesses the ability to uncover
-                disparities between them and provide appropriate warnings.</div>
-        </div>
-
-        <div class="w-100 text-center mx-auto my-3 border rounded p-3" style="max-width: 640px;">
-            <h3>Step 1</h3>
-            <div class="w-100 my-2 mx-auto">Upload whitepaper</div>
-            <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-                <input class="form-control" type="file" @change="onWhitepaperPicked">
-            </div>
-        </div>
-
-        <div class="w-100 text-center mx-auto my-3 border rounded p-3" style="max-width: 640px;">
-            <h3>Step 2</h3>
-            <div class="w-100 my-2 mx-auto">Upload Smart Contract code</div>
-            <div class="w-100 my-2 mx-auto" style="max-width: 320px;">
-                <input class="form-control" type="file" @change="onCodePicked">
-            </div>
-        </div>
-
-        <div class="w-100 text-center my-3">
-            <button class="btn btn-lg btn-danger text-center" style="width: 200px;" @click="submit()"
-                :disabled="loading">
-                <div v-if="!loading" class="mx-auto d-block">Show Me Risks!</div>
-                <div v-else class="mx-auto d-block spinner-border">
-                </div>
-            </button>
-        </div>
+  <div v-if="!jobId">
+    <div class="w-100 text-center my-3">
+      <img
+        src="/logo.png"
+        alt="Insightic Logo"
+        style="width: 60px; height: 60px"
+      />
+      <h2>Contract Diff</h2>
+      <div class="w-100 mx-auto" style="max-width: 720px">
+        Contract Diff is a tool utilized for cross-validation and examination of
+        whitepapers and smart contracts. By scrutinizing the whitepaper and
+        smart contract, Contract Diff possesses the ability to uncover
+        disparities between them and provide appropriate warnings.
+      </div>
     </div>
 
-    <div v-else>
-        <div class="w-100 text-center my-3">
-            <img src="/logo.png" alt="Insightic Logo" style="width: 60px; height: 60px;">
-            <h2>Contract Diff - Results</h2>
-            <div>Job ID: <span>{{ jobId }}</span></div>
-        </div>
-
-        <div class="w-100 my-3 mx-auto">
-            <div v-if="loading" class="text-center my-5">
-                <div class="spinner-border">
-                </div>
-            </div>
-            <div v-else class="row">
-                <div class="col-md-6 col-lg-4 my-2" v-for="result in results" :key="result.id">
-                    <result-component :title="result.description" :whitepaper="result.whitepaper" :code="result.code"
-                        :variant="getVariant(result)">
-                    </result-component>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-100 text-center my-3">
-            <a class="btn btn-lg btn-primary text-center" style="width: 200px;" type="button" href="/contract-diff">
-                Try again
-            </a>
-        </div>
+    <div
+      class="w-100 text-center mx-auto my-3 border rounded p-3"
+      style="max-width: 640px"
+    >
+      <h3>Step 1</h3>
+      <div class="w-100 my-2 mx-auto">Upload whitepaper</div>
+      <div class="w-100 my-2 mx-auto" style="max-width: 320px">
+        <input class="form-control" type="file" @change="onWhitepaperPicked" />
+      </div>
     </div>
+
+    <div
+      class="w-100 text-center mx-auto my-3 border rounded p-3"
+      style="max-width: 640px"
+    >
+      <h3>Step 2</h3>
+      <div class="w-100 my-2 mx-auto">Upload Smart Contract code</div>
+      <div class="w-100 my-2 mx-auto" style="max-width: 320px">
+        <input class="form-control" type="file" @change="onCodePicked" />
+      </div>
+    </div>
+
+    <div class="w-100 text-center my-3">
+      <button
+        class="btn btn-lg btn-danger text-center"
+        style="width: 200px"
+        @click="submit()"
+        :disabled="loading"
+      >
+        <div v-if="!loading" class="mx-auto d-block">Show Me Risks!</div>
+        <div v-else class="mx-auto d-block spinner-border"></div>
+      </button>
+    </div>
+  </div>
+
+  <div v-else>
+    <div class="w-100 text-center my-3">
+      <img
+        src="/logo.png"
+        alt="Insightic Logo"
+        style="width: 60px; height: 60px"
+      />
+      <h2>Contract Diff - Results</h2>
+      <div>Job ID: <span>{{ jobId }}</span></div>
+    </div>
+
+    <div class="w-100 my-3 mx-auto">
+      <div v-if="loading" class="text-center my-5">
+        <div class="spinner-border"></div>
+      </div>
+      <div v-else class="row">
+        <div
+          class="col-md-6 col-lg-4 my-2"
+          v-for="result in results"
+          :key="result.id"
+        >
+          <result-component
+            :title="result.description"
+            :whitepaper="result.whitepaper"
+            :code="result.code"
+            :variant="getVariant(result)"
+            style="cursor: pointer"
+            @click="showResultModal(result)"
+          >
+          </result-component>
+        </div>
+      </div>
+    </div>
+    <div class="w-100 text-center my-3">
+      <a
+        class="btn btn-lg btn-primary text-center"
+        style="width: 200px"
+        type="button"
+        href="/contract-diff"
+      >
+        Try again
+      </a>
+    </div>
+  </div>
+  <result-modal
+    :result="selectedCodeValidationResult"
+    :visible="showCodeValidationModal"
+    @close="showCodeValidationModal = false"
+  >
+  </result-modal>
 </div>
 
-<div id="result-component-template" style="display: none;">
-    <div class="rounded p-3 bg-opacity-25 h-100 w-100"
-        :class="{'bg-danger': variant == 'danger', 'bg-warning': variant == 'warning', 'bg-success': variant == 'success'}">
-        <div class="d-flex align-items-top">
-            <i v-if="variant=='danger'" class="bi bi-x-circle-fill me-2 text-danger"></i>
-            <i v-if="variant=='warning'" class="bi bi-exclamation-circle-fill me-2 text-warning"></i>
-            <i v-if="variant=='success'" class="bi bi-check-circle-fill me-2 text-success"></i>
+<div id="result-component-template" style="display: none">
+  <div
+    class="rounded p-3 bg-opacity-25 h-100 w-100"
+    :class="{
+        'bg-danger': variant == 'danger',
+        'bg-warning': variant == 'warning',
+        'bg-success': variant == 'success'
+      }"
+  >
+    <div class="d-flex align-items-top">
+      <i
+        v-if="variant == 'danger'"
+        class="bi bi-x-circle-fill me-2 text-danger"
+      ></i>
+      <i
+        v-if="variant == 'warning'"
+        class="bi bi-exclamation-circle-fill me-2 text-warning"
+      ></i>
+      <i
+        v-if="variant == 'success'"
+        class="bi bi-check-circle-fill me-2 text-success"
+      ></i>
 
-            <div class="text-break">
-                <div style="font-size: 1.05rem;"><b>{{ title }}</b></div>
-                <div class="small mb-2">{{ description }}</div>
-                <div class="small"><b><u>Whitepaper</u></b></div>
-                <div class="small">{{ whitepaper }}</div>
-                <div class="small"><b><u>Code</u></b></div>
-                <div class="small">{{ code }}</div>
-            </div>
+      <div class="text-break">
+        <div style="font-size: 1.05rem">
+          <b>{{ title }}</b>
         </div>
+        <div class="small mb-2">{{ description }}</div>
+        <div class="small">
+          <b><u>Whitepaper</u></b>
+        </div>
+        <div
+          class="small"
+          style="
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+          "
+        >
+          {{ whitepaper }}
+        </div>
+        <div class="small">
+          <b><u>Code</u></b>
+        </div>
+        <div
+          class="small"
+          style="
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+          "
+        >
+          {{ code }}
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
+<div id="result-modal-template" style="display: none">
+  <div
+    class="modal modal-lg fade"
+    :class="{ show: visible, hidden: !visible }"
+    tabindex="-1"
+    style="display: block; background-color: rgba(0, 0, 0, 0.5)"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ result['description'] }}</h5>
+          <button
+            type="button"
+            class="btn-close"
+            @click="$emit('close')"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <div
+              :class="{
+                'bg-danger': result['pass'] == 'NO',
+                'bg-warning': result['pass'] == 'Others',
+                'bg-success': result['pass'] == 'YES'
+              }"
+              class="rounded p-3 bg-opacity-50 h-100 w-100"
+            >
+              {{ result['pass'] }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <h5>Whitepaper</h5>
+              <div>{{ result['whitepaper'] }}</div>
+            </div>
+            <div class="col-6">
+              <h5>Code</h5>
+              <div>{{ result['code'] }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
-    (async function () {
-        const { createApp } = Vue
+  (async function () {
+    const { createApp } = Vue;
 
-        const ResultComponent = {
-            props: {
-                variant: { type: String, default: 'success' },
-                title: { type: String, default: '' },
-                description: { type: String, default: '' },
-                whitepaper: { type: String, default: '' },
-                code: { type: String, default: '' }
-            },
-            template: $('#result-component-template').innerHTML
-        };
+    const ResultComponent = {
+      props: {
+        variant: { type: String, default: "success" },
+        title: { type: String, default: "" },
+        description: { type: String, default: "" },
+        whitepaper: { type: String, default: "" },
+        code: { type: String, default: "" },
+      },
+      template: $("#result-component-template").innerHTML,
+    };
 
-        const App = {
-            async created() {
-                if (!this.jobId) {
-                    this.loading = false;
-                } else {
-                    this.loading = true;
-                    const resp = await axios.get(`https://validation-api.insightic.io/jobs/${this.jobId}`);
-                    this.results = resp.data.results.sort((a, b) => a.id - b.id);
-                    const refreshInterval = setInterval(async () => {
-                        const resp = await axios.get(`https://validation-api.insightic.io/jobs/${this.jobId}`);
-                        this.results = resp.data.results.sort((a, b) => a.id - b.id);
-                        if (resp.data.status === 'accepted') clearInterval(refreshInterval);
-                    }, 3000);
-                    this.loading = false;
-                }
-            },
-            data: () => ({
-                loading: false,
-                whitepaperFile: null,
-                codeFile: null,
-                results: []
-            }),
-            computed: {
-                jobId() {
-                    return new URL(window.location.href).searchParams.get('jobId')
-                }
-            },
-            methods: {
-                getVariant(result) {
-                    if (result.pass == "YES") return "success"
-                    if (result.pass == "NO") return "danger"
-                    else return "warning"
-                },
-                onWhitepaperPicked(evt) {
-                    this.whitepaperFile = evt.target.files[0];
-                },
-                onCodePicked(evt) {
-                    this.codeFile = evt.target.files[0];
-                },
-                async submit() {
-                    if (!this.whitepaperFile || !this.codeFile) {
-                        alert('You have choose both Whitepaper and Code!');
-                        return;
-                    }
+    const ResultModal = {
+      props: {
+        result: { type: Object, default: null },
+        visible: { type: Boolean, default: true },
+      },
+      template: $("#result-modal-template").innerHTML,
+    };
 
-                    this.loading = true;
-                    const whitepaperObjectId = await window.uploadFile(this.whitepaperFile);
-                    const codeObjectId = await window.uploadFile(this.codeFile);
+    const App = {
+      async created() {
+        if (!this.jobId) {
+          this.loading = false;
+        } else {
+          this.loading = true;
+          const resp = await axios.get(
+            `https://validation-api.insightic.io/jobs/${this.jobId}`
+          );
+          console.log(resp);
+          this.results = resp.data.results.sort((a, b) => a.id - b.id);
+          const refreshInterval = setInterval(async () => {
+            const resp = await axios.get(
+              `https://validation-api.insightic.io/jobs/${this.jobId}`
+            );
+            this.results = resp.data.results.sort((a, b) => a.id - b.id);
+            if (resp.data.status === "accepted") clearInterval(refreshInterval);
+          }, 3000);
+          this.loading = false;
+        }
+      },
+      data: () => ({
+        loading: false,
+        whitepaperFile: null,
+        codeFile: null,
+        results: [],
+        showCodeValidationModal: false,
+        selectedCodeValidationResult: {},
+      }),
+      computed: {
+        jobId() {
+          return new URL(window.location.href).searchParams.get("jobId");
+        },
+      },
+      methods: {
+        getVariant(result) {
+          if (result.pass == "YES") return "success";
+          if (result.pass == "NO") return "danger";
+          else return "warning";
+        },
+        onWhitepaperPicked(evt) {
+          this.whitepaperFile = evt.target.files[0];
+        },
+        onCodePicked(evt) {
+          this.codeFile = evt.target.files[0];
+        },
+        showResultModal(result) {
+          this.selectedCodeValidationResult = result;
+          console.log(this.selectedCodeValidationResult["pass"]);
+          this.showCodeValidationModal = true;
+        },
+        async submit() {
+          if (!this.whitepaperFile || !this.codeFile) {
+            alert("You have choose both Whitepaper and Code!");
+            return;
+          }
 
-                    const resp = await axios.post('https://validation-api.insightic.io/jobs', {
-                        whitepaper_id: whitepaperObjectId,
-                        code_id: codeObjectId
-                    });
+          this.loading = true;
+          const whitepaperObjectId = await window.uploadFile(
+            this.whitepaperFile
+          );
+          const codeObjectId = await window.uploadFile(this.codeFile);
 
-                    const jobId = resp.data.guid;
-                    window.location.href = `/contract-diff?jobId=${jobId}`;
-                }
+          const resp = await axios.post(
+            "https://validation-api.insightic.io/jobs",
+            {
+              whitepaper_id: whitepaperObjectId,
+              code_id: codeObjectId,
             }
-        };
+          );
 
-        const app = createApp(App);
-        app.component('ResultComponent', ResultComponent);
-        app.mount('#app');
-    })();
+          const jobId = resp.data.guid;
+          window.location.href = `/contract-diff?jobId=${jobId}`;
+        },
+      },
+    };
+
+    const app = createApp(App);
+    app.component("ResultComponent", ResultComponent);
+    app.component("ResultModal", ResultModal);
+    app.mount("#app");
+  })();
 </script>
+<style>
+  .hidden {
+    visibility: hidden;
+  }
+</style>
