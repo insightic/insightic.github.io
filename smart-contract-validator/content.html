@@ -52,6 +52,15 @@
           <div class="row mx-auto" style="max-width: 320px;">
             <div class="col-6">
               <div class="form-check">
+                <input class="form-check-input" type="checkbox" v-model="showPassed">
+                <label class="form-check-label">
+                  Passed
+                </label>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-check">
                 <input class="form-check-input" type="checkbox" v-model="showRisks">
                 <label class="form-check-label">
                   Risks
@@ -70,15 +79,6 @@
 
             <div class="col-6">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" v-model="showPassed">
-                <label class="form-check-label">
-                  Passed
-                </label>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <div class="form-check">
                 <input class="form-check-input" type="checkbox" v-model="showIgnored">
                 <label class="form-check-label">
                   Ignored
@@ -88,11 +88,48 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6 col-lg-4 my-2" v-for="result in filteredResults" :key="result.id">
-            <result-component :result="result" :variant="getVariant(result)" style="cursor: pointer"
-              @click="showResultModal(result)">
-            </result-component>
+        <div v-if="showPassed">
+          <h4>Passed</h4>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 my-2" v-for="result in passed" :key="result.id">
+              <result-component :result="result" :variant="getVariant(result)" style="cursor: pointer"
+                @click="showResultModal(result)">
+              </result-component>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="showRisks" class="mt-3">
+          <h4>Risks</h4>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 my-2" v-for="result in risks" :key="result.id">
+              <result-component :result="result" :variant="getVariant(result)" style="cursor: pointer"
+                @click="showResultModal(result)">
+              </result-component>
+            </div>
+          </div>
+        </div>
+
+
+        <div v-if="showWarnings" class="mt-3">
+          <h4>Warnings</h4>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 my-2" v-for="result in warnings" :key="result.id">
+              <result-component :result="result" :variant="getVariant(result)" style="cursor: pointer"
+                @click="showResultModal(result)">
+              </result-component>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="showIgnored" class="mt-3">
+          <h4>Ignored</h4>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 my-2" v-for="result in ignored" :key="result.id">
+              <result-component :result="result" :variant="getVariant(result)" style="cursor: pointer"
+                @click="showResultModal(result)">
+              </result-component>
+            </div>
           </div>
         </div>
       </div>
@@ -288,7 +325,19 @@
         },
         filteredResults() {
           return this.results.filter((result) => this.shouldShow(result));
-        }
+        },
+        passed() {
+          return this.results.filter((result) => result.pass == "YES");
+        },
+        risks() {
+          return this.results.filter((result) => result.pass == "NO");
+        },
+        warnings() {
+          return this.results.filter((result) => result.pass == "NOT SURE");
+        },
+        ignored() {
+          return this.results.filter((result) => result.pass == "IGNORED");
+        },
       },
       methods: {
         toTitleCase, shouldShow, getVariant,
