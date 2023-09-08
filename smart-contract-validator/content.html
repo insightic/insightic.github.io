@@ -123,7 +123,7 @@
 
       <div class="text-break">
         <div style="font-size: 1.05rem">
-          <b>#{{ result?.id }} - {{ result?.title }}</b>
+          <b>#{{ result?.id }} - {{ toTitleCase(result?.title) }}</b>
         </div>
         <div class="small mb-2" style="
         overflow: hidden;
@@ -167,7 +167,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{ result['description'] }}</h5>
+          <h5 class="modal-title">{{ toTitleCase(result?.title) }}</h5>
           <button type="button" class="btn-close" @click="$emit('close')"></button>
         </div>
         <div class="modal-body">
@@ -197,12 +197,25 @@
 </div>
 <script>
   (async function () {
+    function toTitleCase(str) {
+      if (!str) return "";
+      return str.replace(
+        /\w\S*/g,
+        function (txt) {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+      );
+    }
+
     const { createApp } = Vue;
 
     const ResultComponent = {
       props: {
         result: { type: Object, default: null },
         variant: { type: String, default: "secondary" },
+      },
+      methods: {
+        toTitleCase,
       },
       template: $("#result-component-template").innerHTML,
     };
@@ -211,6 +224,9 @@
       props: {
         result: { type: Object, default: null },
         visible: { type: Boolean, default: true },
+      },
+      methods: {
+        toTitleCase,
       },
       template: $("#result-modal-template").innerHTML,
     };
