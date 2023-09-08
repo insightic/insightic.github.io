@@ -10,7 +10,7 @@
                 {{ if .Params.hero }}
                 <div class="w-100 mb-3">
                     <a href="{{ .Permalink }}">
-                        <img class="w-100" src="{{ .Params.hero }}">
+                        <img class="w-100 rounded" src="{{ .Params.hero }}" style="aspect-ratio: 16/9;">
                     </a>
                 </div>
                 {{ end }}

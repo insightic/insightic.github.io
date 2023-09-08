@@ -53,4 +53,5 @@
 
 .blog-post img {
   width: 100%;
+  border-radius: var(--bs-border-radius)!important;
 }
