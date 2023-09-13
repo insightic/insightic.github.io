@@ -16,11 +16,6 @@ params:
       address: '#01-16, 75 Ayer Rajah Crescent Singapore 139953'
       phone: +65 9000 0000
       email: info@insightic.io
-    - country: Singapore
-      map: /public/img/insightic-singapore.png
-      address: '#01-16, 75 Ayer Rajah Crescent Singapore 139953'
-      phone: +65 9000 0000
-      email: info@insightic.io
 
   # Founding Members that are shown in the about page
   foundingMembers:
