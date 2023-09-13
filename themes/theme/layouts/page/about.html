@@ -1,13 +1,25 @@
 {{ define "content" }}
 
-{{ partial "hero.html" (dict "HeroTitle" "About" "HeroDescription" "Introduction About Our Team Members.") }}
+{{ partial "hero.html" (dict "HeroBackgroundImage" "/public/img/about-bg.jpg" "HeroTitle" "About" "HeroDescription" "Introduction About Our Team Members.") }}
+
+<div class="container my-5">
+    <div class="h1">About</div>
+
+    Insightic is a spin-off company from the National University of Singapore (NUS), which has recently been recognized
+    as the 8th best globally and the 1st in Asia as per the Quacquarelli Symonds (QS) World University Rankings 2024.
+    <br /><br />
+    Founded by <b>Dr. Lu Shengliang</b> and <b>Professor He Bingsheng</b>, the foundation of Insightic lies in their extensive
+    research spanning decades in Graph Analytics and Federated Learning. Their expertise is further solidified with the
+    publication of over 100 related academic papers. Insightic's core mission is to harness AI capabilities to provide
+    compliance solutions tailored to the digital asset industry.
+</div>
 
 <div class="container my-5">
     <div class="h1">Founding Members</div>
     <div class="d-flex flex-wrap">
         {{ range .Site.Params.foundingMembers }}
         <div class="m-3">
-            <img class="my-2" src="{{ .avatar }}" alt="ryan-liew"
+            <img class="my-2 black-and-white" src="{{ .avatar }}"
                 style="border-radius:50%; width:200px; height: 200px;">
             <div class="h3">{{ .name }}</div>
             <div>{{ .title }}</div>
@@ -21,7 +33,7 @@
     <div class="d-flex flex-wrap">
         {{ range .Site.Params.teamMembers }}
         <div class="m-3">
-            <img class="my-2" src="{{ .avatar }}" alt="ryan-liew"
+            <img class="my-2 black-and-white" src="{{ .avatar }}"
                 style="border-radius:50%; width:200px; height: 200px;">
             <div class="h3">{{ .name }}</div>
             <div>{{ .title }}</div>
