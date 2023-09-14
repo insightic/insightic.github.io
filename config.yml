@@ -13,8 +13,7 @@ params:
   offices:
     - country: Singapore
       map: /public/img/insightic-singapore.png
-      address: '#01-16, 75 Ayer Rajah Crescent Singapore 139953'
-      phone: +65 9000 0000
+      address: 'National University of Singapore Innovation 4 (i4.0) Building, 3 Research Link, #04-03, Singapore 117602'
       email: info@insightic.io
 
   # Founding Members that are shown in the about page
