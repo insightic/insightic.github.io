@@ -1,6 +1,7 @@
 {{ define "content" }}
 
-{{ partial "hero.html" (dict "HeroBackgroundImage" "/public/img/contact-us-bg.jpg" "HeroTitle" "Get in Touch" "HeroDescription" `Sometimes you need a little help from your
+{{ partial "hero.html" (dict "HeroBackgroundImage" "/public/img/contact-us-bg.jpg" "HeroTitle" "Get in Touch"
+"HeroDescription" `Sometimes you need a little help from your
 friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
 
 <div class="container my-5">
@@ -36,7 +37,7 @@ friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
 
 <div class="horizontal-line"></div>
 
-<div class="container my-5">
+<div class="container my-5" id="app">
     <div class="w-100 text-center my-3">
         <div style="font-size: 3rem;">Leave a message</div>
         <div>Leave us a message and our team member will contact you shortly.</div>
@@ -48,7 +49,8 @@ friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
                     <label>
                         <span>Your Name</span> *
                     </label>
-                    <input id="name" name="contact-name" type="text" class="form-control" required="">
+                    <input id="name" name="contact-name" type="text" class="form-control" required="true"
+                        v-model="name">
                 </div>
             </div>
             <div class="col-md-6 my-2">
@@ -56,7 +58,8 @@ friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
                     <label>
                         <span>Email Address</span> *
                     </label>
-                    <input id="email" name="contact-email" type="email" class="form-control" required="">
+                    <input id="email" name="contact-email" type="email" class="form-control" required="true"
+                        v-model="email">
                 </div>
             </div>
         </div>
@@ -66,15 +69,16 @@ friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
                     <label>
                         <span>Company Name</span> *
                     </label>
-                    <input id="company" name="contact-company" type="text" class="form-control" required="">
+                    <input id="company" name="contact-company" type="text" class="form-control" required="true"
+                        v-model="company">
                 </div>
             </div>
             <div class="col-md-6 my-2">
                 <div class="form-group">
                     <label>
-                        <span>Contact Number</span> *
+                        <span>Contact Number</span>
                     </label>
-                    <input id="number" name="contact-number" type="text" class="form-control" required="">
+                    <input id="number" name="contact-number" type="text" class="form-control" v-model="phone">
                 </div>
             </div>
         </div>
@@ -85,13 +89,48 @@ friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
                         <span>Message</span>
                     </label>
                     <textarea id="message" class="form-control" name="contact-message" rows="10"
-                        placeholder="How can we help?" required=""></textarea>
+                        placeholder="How can we help?" required="true" v-model="message"></textarea>
                 </div>
             </div>
         </div>
         <div class="text-center my-3">
-            <button class="btn btn-lg btn-primary">Send Enquiry</button>
+            <button class="btn btn-lg btn-primary" @click="sendEnquiry">Send Enquiry</button>
         </div>
     </form>
 </div>
+
+<script>
+    const { createApp } = Vue;
+
+    const app = createApp({
+        data() {
+            return {
+                name: "",
+                email: "",
+                company: "",
+                phone: "",
+                message: ""
+            }
+        },
+        methods: {
+            sendEnquiry() {
+                if(!this.name) {
+                    alert("Please enter your name.");
+                    return;
+                }
+                if(!this.email) {
+                    alert("Please enter your email.");
+                    return;
+                }
+                if(!this.company) {
+                    alert("Please enter your company name.");
+                    return;
+                }
+                window.location.href = `mailto:lushl9301@gmail.com?subject=Enquiry from ${this.name}, ${this.company}&body=${this.message}`;
+            }
+        }
+    });
+
+    app.mount("#app");
+</script>
 {{ end }}
