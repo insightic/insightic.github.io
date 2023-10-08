@@ -127,12 +127,13 @@ friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
                     return;
                 }
                 const subject = `Enquiry from ${this.name}, ${this.company}`;
-                const message = this.message;
+                const message = `Enquiry from ${this.name}, ${this.company}\nMy Number is ${this.phone}, \n\n${this.message}`;
                 await axios.post("https://api.insightic.io/sendEmail", {
-                    "To": "yiwei.gong@insightic.io",
+                    "To": "contact@insightic.io",
                     "Subject": subject,
                     "Message": message
                 });
+                alert("One of our team member will contact you shortly.");
             }
         }
     });
