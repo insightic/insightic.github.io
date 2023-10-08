@@ -113,20 +113,26 @@ friends. Or a Insightic support rep. Don't worry, we're here for you.`) }}
             }
         },
         methods: {
-            sendEnquiry() {
-                if(!this.name) {
+            async sendEnquiry() {
+                if (!this.name) {
                     alert("Please enter your name.");
                     return;
                 }
-                if(!this.email) {
+                if (!this.email) {
                     alert("Please enter your email.");
                     return;
                 }
-                if(!this.company) {
+                if (!this.company) {
                     alert("Please enter your company name.");
                     return;
                 }
-                window.location.href = `mailto:lushl9301@gmail.com?subject=Enquiry from ${this.name}, ${this.company}&body=${this.message}`;
+                const subject = `Enquiry from ${this.name}, ${this.company}`;
+                const message = this.message;
+                await axios.post("https://api.insightic.io/sendEmail", {
+                    "To": "yiwei.gong@insightic.io",
+                    "Subject": subject,
+                    "Message": message
+                });
             }
         }
     });
