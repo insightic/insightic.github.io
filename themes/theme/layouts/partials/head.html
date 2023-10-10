@@ -14,7 +14,7 @@
 
     window.uploadFile = async function (fileObject) {
         try {
-            const resp = await axios.post('https://staging-api.insightic.io/preSignedPut');
+            const resp = await axios.post('https://api.insightic.io/preSignedPut');
             const payload = resp.data.payload;
             const url = payload.URL;
             const objectId = payload.ObjectID;
