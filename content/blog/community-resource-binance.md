@@ -1,12 +1,12 @@
 ---
-title: "Community Resource - BINANCE"
+title: "Community Resource - Binance"
 date: "2023-09-07"
 description: "Latest Key Event Updates and Links"
-hero: /img/community_resource_binance.png
+hero: /img/community_resource_binance_hero.png
 tags: ["community resource"]
 ---
 
-![Community Resource - BINANCE](/img/community_resource_binance.png)
+![Community Resource - Binance](/img/community_resource_binance_hero.png)
 
 ## About
 Binance Holdings Ltd., also referred to as Binance, is the largest exchange in the world offering a platform for selling and buying cryptocurrency for the traders and users. The company is found by Changpeng Zhao (CZ) and Yi He in China in 2017. Soon after its establishment, Binance grows quickly and launches two cryptocurrencies, including Binance Coin (BNB), and BinanceUSD (BUSD). In 2023, Binance and CZ are under investigation by many governments, such as US, Canada, and Australia.
