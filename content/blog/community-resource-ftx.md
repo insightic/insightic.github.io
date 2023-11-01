@@ -2,11 +2,11 @@
 title: "Community Resource - FTX"
 date: "2023-08-17"
 description: "Latest Key Event Updates and Links"
-hero: /img/community_resource_ftx.png
+hero: /img/community_resource_ftx_hero.png
 tags: ["community resource"]
 ---
 
-![Community Resource - FTX](/img/community_resource_ftx.png)
+![Community Resource - FTX](/img/community_resource_ftx_hero.png)
 
 ## About
 FTX was an international cryptocurrency exchange founded by Sam Bankman-Fried and Gary Wang in 2019.
