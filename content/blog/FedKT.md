@@ -12,7 +12,7 @@ One possible approach is Federated Learning. Federated Learning offers a decentr
 
 Whereas traditional Federated Learning is iterative and requires parties or devices to be available for each round of training, One-shot Federated Learning is a single-round approach requiring parties or devices to communicate just once. By circumventing the need for stable multi-round participation, it is safer and more practical for enterprise applications.
 
-Introducing FedKT (Federated Learning via Knowledge Transfer) – our unique One-shot Federated Learning algorithm. Discover more here: https://lnkd.in/gBXAMjuJ
+Introducing FedKT (Federated Learning via Knowledge Transfer) – our unique One-shot Federated Learning algorithm. Discover more [here](https://arxiv.org/abs/2010.01017)
 
 FedKT is unique in 3 ways, which makes it especially suited for institutional or large enterprise-level implementations.
 
