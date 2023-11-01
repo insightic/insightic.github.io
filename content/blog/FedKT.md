@@ -1,10 +1,12 @@
 ---
 title: "Dive Deep into Insightic's Research: The Power of Federated Learning"
 date: "2023-10-31"
-description: "Introducing FedKT (Federated Learning via Knowledge Transfer)"
+description: "Introducing Federated Learning via Knowledge Transfer (FedKT)"
 hero: /img/FedKT_hero.png
 tags: ["insightic research"]
 ---
+
+![FedKT_hero](/img/FedKT_hero.png)
 
 Navigating the landscape of digital asset regulation can be challenging, especially since each jurisdiction has its nuances and rules. A technology which is able to facilitate collaboration while addressing unique privacy requirements of each collaborator could be a solution.
 
@@ -18,8 +20,8 @@ Introducing FedKT (Federated Learning via Knowledge Transfer) – our unique One
 
 FedKT is unique in 3 ways, which makes it especially suited for institutional or large enterprise-level implementations.
 
-**1) Safety** - A single communication round minimizes vulnerabilities to threats like inference attacks.
-**2) Flexibility** - It is adaptable to various models, whether they be neural networks, decision trees, or support vector machines.
+**1) Safety** - A single communication round minimizes vulnerabilities to threats like inference attacks.\
+**2) Flexibility** - It is adaptable to various models, whether they be neural networks, decision trees, or support vector machines.\
 **3) Privacy** - While maintaining near-optimal performance, akin to a fully centralized model, FedKT ensures heightened privacy. It enables privacy configurations at both data and party levels, ensuring custom-fit solutions for diverse settings.
 
 The world of digital asset regulation is intricate, varying widely across jurisdictions. Federated learning, through its innovation, facilitates a shared learning experience, allowing entities from diverse jurisdictions to collaborate. This method not only taps into collective knowledge but also ensures data remains private, addressing security concerns head-on. Such a collaborative yet private approach paves the way for a harmonized regulatory framework empowered by advanced AI techniques.
