@@ -41,7 +41,7 @@ background-image: url('/img/code.jpg');
 
     <div class="w-100 text-center my-3">
       <button class="btn btn-lg btn-danger text-center" style="width: 200px" @click="submit()" :disabled="loading">
-        <div v-if="!loading" class="mx-auto d-block">submit</div>
+        <div v-if="!loading" class="mx-auto d-block">Submit</div>
         <div v-else class="mx-auto d-block spinner-border"></div>
       </button>
     </div>
@@ -385,6 +385,14 @@ background-image: url('/img/code.jpg');
             return;
           }
 
+          let contract_type = 'nft'
+          if ((this.whitepaperFile.name.toLowerCase().indexOf("sgd")) >= 0) {
+            contract_type = 'stablecoin'
+          }
+          if ((this.codeFile.name.toLowerCase().indexOf("sgd")) >= 0) {
+            contract_type = 'stablecoin'
+          }
+
           this.loading = true;
           const whitepaperObjectId = await window.uploadFile(
             this.whitepaperFile
@@ -397,7 +405,8 @@ background-image: url('/img/code.jpg');
               whitepaper_id: whitepaperObjectId,
               code_id: codeObjectId,
               results_api_endpoint: "",
-              status_api_endpoint: ""
+              status_api_endpoint: "",
+              contract_type
             }
           );
 
