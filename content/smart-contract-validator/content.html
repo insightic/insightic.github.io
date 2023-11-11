@@ -537,14 +537,24 @@
           }
 
           let contract_type = "nft";
-          const keywords = ["sgd", "payment", "dex"];
-          for (let i = 0; i < keywords.length; i++) {
-            const keyword = keywords[i];
+          const stablecoin_keywords = ["sgd", "payment"];
+          for (let i = 0; i < stablecoin_keywords.length; i++) {
+            const keyword = stablecoin_keywords[i];
             if (this.whitepaperFile.name.toLowerCase().indexOf(keyword) >= 0) {
               contract_type = "stablecoin";
             }
             if (this.codeFile.name.toLowerCase().indexOf(keyword) >= 0) {
               contract_type = "stablecoin";
+            }
+          }
+          const dex_keywords = ["dex", "swap"];
+          for (let i = 0; i < dex_keywords.length; i++) {
+            const keyword = dex_keywords[i];
+            if (this.whitepaperFile.name.toLowerCase().indexOf(keyword) >= 0) {
+              contract_type = "dex";
+            }
+            if (this.codeFile.name.toLowerCase().indexOf(keyword) >= 0) {
+              contract_type = "dex";
             }
           }
 
