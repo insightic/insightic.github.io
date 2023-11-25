@@ -16,12 +16,14 @@ Nine days after the report, FTX entered and remains in Chapter 11 bankruptcy pro
 
 ## Key Events
 ### Remedies and Restructuring
+- 17 Nov 2023: [Larger FTX claims are being offered for as much as 60¢ – 65¢ on the dollar, marking an increase of as much as 30% when compared to about a month ago.](https://www.theblock.co/post/263592/ftx-creditor-claims-increase-to-as-high-as-65-cents-on-the-dollar)
 - 1 Aug 2023: [A suggested plan by the bankruptcy administrators has been submitted, and it calls for the potential reactivation of FTX.](https://www.ccn.com/ftx-2-heres-what-you-need-to-know/)
 - 3 Jul 2023: [FTX claims portal officially launched, creditors can view the claim and edit the claim.](https://coingape.com/breaking-ftx-launches-claim-portal-for-creditors/)
 - 28 Jun 2023: [FTX begins discussing with investors about relaunching its international exchange.](https://www.wsj.com/articles/ftx-begins-talks-on-reboot-as-managers-uncover-past-misconduct-38ad7e3c)
 - 15 Jun 2023: [FTX claims portal launched, will be officially available on Jul 3.](https://twitter.com/AFTXcreditor/status/1669324304654163968)
 
 ### Arrest and Charges
+- Nov 2 2023:[Sam Bankman-Fried was convicted on all seven counts and faces up to 110 years in prison for defrauding FTX customers out of roughly $8 billion worth of their funds.](https://cryptoslate.com/sbf-found-guilty-on-all-7-charges/)
 - Dec 13 2022: [The U.S. Securities and Exchange Commission charges Bankman-Fried for defrauding FTX investors.](https://www.coindesk.com/policy/2022/12/13/us-sec-charges-sam-bankman-fried-for-defrauding-ftx-investors/)
 - Dec 12 2022: [Police arrest Bankman-Fried in the Bahamas, with the US expected to file for his extradition. US authorities decline to comment on potential charges, but the New York Times reports the charges include wire fraud, wire fraud conspiracy, securities.](https://www.cnbc.com/2022/12/12/ftx-founder-sam-bankman-fried-arrested-in-the-bahamas-after-us-files-criminal-charges.html)
 
