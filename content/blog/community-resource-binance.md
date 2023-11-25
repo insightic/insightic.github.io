@@ -13,6 +13,7 @@ Binance Holdings Ltd., also referred to as Binance, is the largest exchange in t
 
 ## Key events
 ### Under investigation
+ - Nov 22 2023:[Binance's Founder Zhao Resigns and Admits Violating U.S. Anti-Money Laundering Laws, company to Pay $4.3 Billion.](https://asia.nikkei.com/Spotlight/Cryptocurrencies/Binance-s-Zhao-pleads-guilty-in-U.S.-court-company-to-pay-4.3bn)
  - Jul 5 2023: [Binance office in Australia is searched by the Australian Securities & Investments Commission (ASIC).](https://www.bloomberg.com/news/articles/2023-07-05/binance-australia-offices-searched-by-regulator-as-part-of-derivatives-probe#xj4y7vzkg)
  - Jun 23 2023: [Binance orderes to stop all digital currency services in Belgium.](https://www.reuters.com/technology/binance-ordered-stop-all-digital-currency-services-belgium-2023-06-23/)
  - Jun 16 2023: [Binance under investigation in France for 'Aggravated' Money Laundering.](https://www.reuters.com/technology/binance-under-investigation-france-illegal-canvassing-le-monde-2023-06-16/)
@@ -22,6 +23,7 @@ Binance Holdings Ltd., also referred to as Binance, is the largest exchange in t
  - May 5 2023: [US Justice Department investigates Binance for violating Russian sanctions.](https://www.coindesk.com/policy/2023/05/06/us-justice-department-investigating-binance-for-russia-related-sanctions-violations-bloomberg/)
  - Mar 28 2023: [U.S. Appeal Halts Binance.US From Buying Voyager Crypto Accounts.](https://www.wsj.com/articles/u-s-appeal-halts-binance-us-from-buying-voyager-crypto-accounts-7302857a)
  - Mar 27 2023: [CFTC Charges Binance and Its Founder, Changpeng Zhao, with Willful Evasion of Federal Law and Operating an Illegal Digital Asset Derivatives Exchange.](https://www.cftc.gov/PressRoom/PressReleases/8680-23)
+
 
 ### Business expansion and product development
  - Mar 1 2023: [Binance invests in Venture Fund Nomad Capital.](https://www.binance.com/en/blog/ecosystem/binance-invests-in-venture-fund-nomad-capital-7677842271867688329)
@@ -55,7 +57,8 @@ Binance Holdings Ltd., also referred to as Binance, is the largest exchange in t
  - Apr 27 2018: [Binance signs a memorandum of understanding with the government of Bermuda.](https://www.gov.bm/articles/premier-david-burt-announces-mou-binance)
 
 ### Establishment and offices
+ - Nov 21 2023:[Richard Teng, who has held regulatory positions and currently serves as head of regional markets, will take over as Binance's CEO.](https://blockworks.co/news/changpeng-zhao-announces-resignation-binance)
  - Mar 23 2018: [Binance announces its intentions to open an office in Malta after stricter regulations in Japan and China.](https://cointelegraph.com/news/major-crypto-exchange-binance-to-open-office-in-malta-after-japanese-regulator-warning)
  - Jan 11 2018: [Binance becomes the World's Top-Ranked Crypto Exchange, adds 240,000 Users in One Hour.](https://twitter.com/binance/status/951329334068789248)
  - Sep 2017: [Binance moves its servers and headquarters out of China in advance of the Chinese government ban on cryptocurrency.](https://www.devex.com/organizations/binance-142332)
- - Jul 2017:  [Changpeng Zhao (CZ) and Yi He found Binance exchange in China, the CEO and CMO of the company.](https://www.forbes.com/sites/pamelaambler/2018/02/07/changpeng-zhao-binance-exchange-crypto-cryptocurrency/?sh=94853611eee8)  [At the same time, launch the Binance Coin (BNB).](https://corporatefinanceinstitute.com/resources/cryptocurrency/binance-coin-bnb/)
+ - Jul 2017:  [Changpeng Zhao (CZ) and Yi He found Binance exchange in China, the CEO and CMO of the company.](https://www.forbes.com/sites/pamelaambler/2018/02/07/changpeng-zhao-binance-exchange-crypto-cryptocurrency/?sh=94853611eee8)  [At the same time, launch the- Binance Coin (BNB).](https://corporatefinanceinstitute.com/resources/cryptocurrency/binance-coin-bnb/)
