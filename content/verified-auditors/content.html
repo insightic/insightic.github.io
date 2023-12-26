@@ -1,0 +1,118 @@
+<div class="w-100 background-image d-flex align-items-center" style="
+    aspect-ratio: 21/9;
+    min-height: 300px;
+    max-height: 420px;
+    background-image: url('/public/img/auditing.png');
+  ">
+    <div class="container text-white">
+        <div class="w-100" style="max-width: 500px">
+            <div style="font-size: 4rem">
+                <strong>Verified Auditors</strong>
+            </div>
+            <div style="font-size: 1.2rem">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="app" class="container my-5">
+    <div class="h1">Verified Auditors</div>
+
+    <div class="row">
+        <div v-for="(auditor, idx) in auditors" :key="idx" class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4>{{ auditor['Auditor Name'] }}</h4>
+                    <a :href="auditor['Website']">{{ auditor['Website'] }}</a>
+
+                    <table>
+                        <tr>
+                            <td style="text-align: right;">Audits:</td>
+                            <td><a :href=" auditor['Audits']">Audit Reports</a></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Final Score:</td>
+                            <td>{{ auditor['Final Score'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Traffic Score:</td>
+                            <td>{{ auditor['Traffic Score'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Impression Score:</td>
+                            <td>{{ auditor['Impression Score'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Monthly Visit:</td>
+                            <td>{{ auditor['Monthly Visit'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Number of Employees:</td>
+                            <td>{{ auditor['Number of Employees'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Short Description:</td>
+                            <td>{{ auditor['Short Description'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Contact Email:</td>
+                            <td>{{ auditor['Contact Email'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Locations:</td>
+                            <td>{{ auditor['Locations'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Audits Completed:</td>
+                            <td>{{ auditor['Audits Completed'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Founded Year:</td>
+                            <td>{{ auditor['Founded Year'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Operating Status:</td>
+                            <td>{{ auditor['Operating Status'] }}</td>
+                        </tr>
+                    </table>
+
+
+
+                    <div class="d-flex">
+                        <i class="bi bi-twitter me-2"></i>
+                        <i class="bi bi-linkedin me-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const { createApp } = Vue;
+    const app = createApp({
+        data() {
+            return {
+                auditors: [
+                    {
+                        "Tier": 1,
+                        "Auditor Name": "Zokyo",
+                        "Website": "https://www.zokyo.io/",
+                        "Audits": "https://github.com/zokyo-sec/audit-reports",
+                        "Traffic Score": 2,
+                        "Professional Evaluation": 4,
+                        "Monthly Visit": 5900,
+                        "Number of Employees": "11-50",
+                        "Contact Email": "hello@zokyo.io",
+                        "LinkedIn": "https://www.linkedin.com/company/zokyo/?originalSubdomain=in",
+                        "Twitter": "https://twitter.com/ZOKYO_io",
+                        "Locations": "Las Vegas,Nevada,United States,North America",
+                        "Audits Completed": "300+",
+                        "Founded Year": 2018
+                    }
+                ]
+            }
+        }
+    });
+    app.mount("#app");
+</script>
