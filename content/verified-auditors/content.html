@@ -1,100 +1,124 @@
-<div class="w-100 background-image d-flex align-items-center" style="
+<div
+  class="w-100 background-image d-flex align-items-center"
+  style="
     aspect-ratio: 21/9;
     min-height: 300px;
     max-height: 420px;
     background-image: url('/public/img/auditing.png');
-  ">
-    <div class="container text-white">
-        <div class="w-100" style="max-width: 500px">
-            <div style="font-size: 4rem">
-                <strong>Verified Auditors</strong>
-            </div>
-            <div style="font-size: 1.2rem"></div>
-        </div>
+  "
+>
+  <div class="container text-white">
+    <div class="w-100" style="max-width: 500px">
+      <div style="font-size: 4rem">
+        <strong>Verified Auditors</strong>
+      </div>
+      <div style="font-size: 1.2rem"></div>
     </div>
+  </div>
 </div>
 
 <div id="app" class="container my-5">
-    <div class="h1">Verified Auditors</div>
+  <div class="h1">Verified Auditors</div>
 
-    <div class="row">
-        <div v-for="(auditor, idx) in auditors" :key="idx" class="col-md-4 col-sm-6 my-2 d-flex align-items-stretch">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-2">
-                        <h4 class="me-2 m-0 p-0">{{ auditor['Auditor Name'] }}</h4>
-                        <div>
-                            <span class="badge rounded-pill bg-success me-2">Tier {{ auditor['Tier'] }}</span>
-                        </div>
-                        <div>
-                            <span class="badge rounded-pill bg-success me-2">active</span>
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="me-2">Founded at {{ auditor['Founded Year'] }},</div>
-                        <div class="me-2">
-                            with {{ auditor['Number of Employees'] }} employees.
-                        </div>
-                    </div>
-                    <div class="mb-3">{{ auditor['Short Description'] }}</div>
-                    <table>
-                        <tr>
-                            <td style="width: 24px"><i class="bi bi-envelope"></i></td>
-                            <td class="d-flex">
-                                <a class="me-2" :href="auditor['Contact Email']">
-                                    {{ auditor['Contact Email'] }}</a>
-                                <a class="me-2" :href="auditor['Twitter']"><i class="bi bi-twitter"></i></a>
-                                <a class="me-2" :href="auditor['LinkedIn']"><i class="bi bi-linkedin"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 24px"><i class="bi bi-globe2"></i></td>
-                            <td><a :href="auditor['Website']">{{auditor['Website']}}</a></td>
-                        </tr>
-                        <tr>
-                            <td style="width: 24px"><i class="bi bi-geo-alt"></i></td>
-                            <td>{{ auditor['Locations'] }}</td>
-                        </tr>
-                    </table>
-
-                    <table class="w-100 text-center mt-4">
-                        <tr>
-                            <td class="small text-secondary">Monthly Visit</td>
-                            <td class="small text-secondary">Audits Completed</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h2>{{ auditor['Monthly Visit'] }}</h2>
-                            </td>
-                            <td>
-                                <h2>{{ auditor['Audits Completed'] }}</h2>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+  <div class="row">
+    <div
+      v-for="(auditor, idx) in auditors"
+      :key="idx"
+      class="col-md-6 col-sm-12 my-2 d-flex align-items-stretch"
+    >
+      <div class="card w-100 small">
+        <div class="card-body" style="background-color: #00000003">
+          <h4>{{ auditor['Auditor Name'] }}</h4>
+          <table class="w-100">
+            <tr>
+              <td class="text-secondary" style="width: 148px">Tier:</td>
+              <td>
+                <span class="badge rounded-pill bg-success me-2"
+                  >Tier {{ auditor['Tier'] }}</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Status:</td>
+              <td>
+                <span class="badge rounded-pill bg-success me-2">active</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Founded Year:</td>
+              <td>{{ auditor['Founded Year'] }}</td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Number of Employees:</td>
+              <td>{{ auditor['Number of Employees'] }}</td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Short Description:</td>
+              <td>{{ auditor['Short Description'] }}</td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Contracts:</td>
+              <td>
+                <a class="me-2" :href="auditor['Contact Email']">
+                  {{ auditor['Contact Email'] }}
+                </a>
+                <a class="me-2" :href="auditor['Twitter']">
+                  <i class="bi bi-twitter"></i>
+                </a>
+                <a class="me-2" :href="auditor['LinkedIn']">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Website:</td>
+              <td>
+                <a :href="auditor['Website']">{{ auditor['Website'] }}</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Locations:</td>
+              <td>{{ auditor['Locations'] }}</td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Monthly Visit:</td>
+              <td>{{ auditor['Monthly Visit'] }}</td>
+            </tr>
+            <tr>
+              <td class="text-secondary">Audits Completed:</td>
+              <td>{{ auditor['Audits Completed'] }}</td>
+            </tr>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
-    console.log(Papa);
-    const { createApp } = Vue;
+  console.log(Papa);
+  const { createApp } = Vue;
 
-    const app = createApp({
-        async created() {
-            axios.get("./auditors.csv").then((resp) => {
-                this.auditors = Papa.parse(resp.data, {
-                    header: true,
-                }).data;
-            });
-        },
-        data() {
-            return {
-                auditors: [],
-            };
-        },
-    });
-    app.mount("#app");
+  const app = createApp({
+    async created() {
+      axios.get("./auditors.csv").then((resp) => {
+        this.auditors = Papa.parse(resp.data, {
+          header: true,
+        }).data;
+      });
+    },
+    data() {
+      return {
+        auditors: [],
+      };
+    },
+  });
+  app.mount("#app");
 </script>
+
+<style scoped>
+  td {
+    vertical-align: top;
+  }
+</style>
