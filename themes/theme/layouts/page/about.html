@@ -19,7 +19,7 @@
     <div class="d-flex flex-wrap">
         {{ range .Site.Params.foundingMembers }}
         <div class="m-3">
-            <img class="my-2 black-and-white" src="{{ .avatar }}"
+            <img class="my-2" src="{{ .avatar }}"
                 style="border-radius:50%; width:200px; height: 200px;">
             <div class="h3">{{ .name }}</div>
             <div>{{ .title }}</div>
@@ -33,7 +33,7 @@
     <div class="d-flex flex-wrap">
         {{ range .Site.Params.teamMembers }}
         <div class="m-3">
-            <img class="my-2 black-and-white" src="{{ .avatar }}"
+            <img class="my-2" src="{{ .avatar }}"
                 style="border-radius:50%; width:200px; height: 200px;">
             <div class="h3">{{ .name }}</div>
             <div>{{ .title }}</div>
